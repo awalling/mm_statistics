@@ -7,6 +7,8 @@ This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute
 
 Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Cmd+Shift+Enter*. 
 ```{r}
+#Read in data from csv files and assign to variable names.  I have #provided the full path names, but if you are working from an R 
+#Notebook or R Script in the same directory as the file you wish #to work with, you can provide the relative path name. 
 mm_weight <- read.csv(file="~/mm_statistics/mm_weight.csv",
                       header=TRUE,
                       sep=",")
@@ -15,20 +17,23 @@ mm_colors <- read.csv(file="~/mm_statistics/mm_colors.csv",
                      sep=",")
 mm_numbers <- read.csv(file="~/mm_statistics/mm_numbers.csv", 
                        header=TRUE,
-                       sep)
+                       sep=",")
 ```
 
 ```{r}
+#Print the data sets and examine each data frame.
 mm_weight
 mm_colors
 mm_numbers
 ```
 
 ```{r}
+#Examine the output of the default hist() function.  
 hist(mm_weight$Weight.in.grams)
 ```
 
 ```{r}
+#Adjust the color, axes labels, and title of the histogram.
 hist(mm_weight$Weight.in.grams,
      col="blue",
      main="Weight of Fun-Size Packets of Peanut M&M's",
@@ -38,6 +43,7 @@ hist(mm_weight$Weight.in.grams,
 ```
 
 ```{r}
+#Create a vector of colors to assign to bars in the histogram.
 hist(mm_weight[,2],
      col=c("blue","red","green"),
      main="Weight of Fun-Size Packets of Peanut M&M's",
@@ -45,6 +51,8 @@ hist(mm_weight[,2],
      ylab="Counts")
 ```
 ```{r}
+#Use the default barplot function.  To name each bar, use the names.arg=c() function to create a vector of names.
+#Assign colors to each bar manually using col=c() to create a vector of colors.
 barplot(mm_colors$Amount,
         names.arg=c("Blue","Brown","Green","Orange","Red","Yellow"),
         col=c("blue","brown","green","orange","red","yellow"),
@@ -54,10 +62,12 @@ barplot(mm_colors$Amount,
 ```
 
 ```{r}
+#Examine the default output from the histogram function for a different data set, mm_numbers.  What's wrong with this picture?
 hist(mm_numbers$X..in.bag)
 ```
 
 ```{r}
+#Adjust the breakpoints for each bin by creating a vector of breakpoints with the breaks=c() function.  Why do we split the bins in between integer values?
 hist(mm_numbers$X..in.bag,
      breaks=c(4.5,5.5,6.5,7.5,8.5),
      col="lightblue",

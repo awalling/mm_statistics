@@ -8,11 +8,15 @@ This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute
 Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Cmd+Shift+Enter*. 
 
 ```{r}
+#Install the ggplot2 package and load the package with the library
+#function.
 install.packages("ggplot2")
 library(ggplot2)
 ```
 
 ```{r}
+#Read in data from csv files and assign to variable names.  I have #provided the full path names, but if you are working from an R 
+#Notebook or R Script in the same directory as the file you wish #to work with, you can provide the relative path name. 
 mm_colors <- read.csv(file="~/mm_statistics/mm_colors.csv",
                       header=TRUE,
                       sep=",")
@@ -25,15 +29,26 @@ mm_weight <- read.csv(file="~/mm_statistics/mm_weight.csv",
 ```
 
 ```{r}
+#Load data into the ggplot function.  aes() is the aesthetics 
+#function and instructs ggplot to map data to visual properties.
+#geom_histogram() instructs ggplot that the shape of the plot
+#is a histogram.
 ggplot(data=mm_weight, aes(mm_weight$Weight.in.grams)) + geom_histogram()
 ```
 
 ```{r}
+#Here we modify our plot to define how the histogram will break 
+#into bins, setting the lower and upper limit and the width of 
+#each bin.
 ggplot(data=mm_weight, aes(mm_weight$Weight.in.grams)) + 
   geom_histogram(breaks=seq(15,22,by=1))
 ```
 
 ```{r}
+#Here we add information about edge color with col, fill color
+#with fill, and transparency with alpha.
+#Additionally, we create a title and x and y axes labels with labs
+#Finally, we define the edges of the plot axes with xlim and ylim
 ggplot(data=mm_weight, aes(mm_weight$Weight.in.grams)) + 
   geom_histogram(breaks=seq(15,22,by=1),
                  col="red",
@@ -46,6 +61,8 @@ ggplot(data=mm_weight, aes(mm_weight$Weight.in.grams)) +
 ```
 
 ```{r}
+#It is possible to create gradient fills in ggplot.  Here we
+#use aes() within geom_histogram() to map the fill color to counts
 ggplot(data=mm_weight, aes(mm_weight$Weight.in.grams)) + 
   geom_histogram(breaks=seq(15,22,by=1),
                  col="red",
@@ -53,6 +70,7 @@ ggplot(data=mm_weight, aes(mm_weight$Weight.in.grams)) +
 ```
 
 ```{r}
+#Here we modify the color of the gradient with scale_fill_gradient()
 ggplot(data=mm_weight, aes(mm_weight$Weight.in.grams)) + 
   geom_histogram(breaks=seq(15,22,by=1),
                  col="red",
@@ -61,6 +79,11 @@ ggplot(data=mm_weight, aes(mm_weight$Weight.in.grams)) +
 ```
 
 ```{r}
+#Here we create a histogram with a density function overlaid, #using the density function.  There are a few major modifications.
+#First, in geom_histogram(), the aes() function maps the y-value
+#to density.
+#Second, we add a new geom to ggplot, geom_density(), and we
+#set the color of the density plot to red.
 ggplot(data=mm_weight, aes(mm_weight$Weight.in.grams)) + 
   geom_histogram(aes(y=..density..),
                  breaks=seq(15,22,by=1),
@@ -74,15 +97,29 @@ ggplot(data=mm_weight, aes(mm_weight$Weight.in.grams)) +
 ```
 
 ```{r}
+#Here we create a bar plot for a different data set, mm_colors.
+#Examine the data frame for mm_colors, and then look at the plot.
+#We use the same basic syntax: we load data in the ggplot() 
+#function, and we define the geometry of the plot with geom_bar().
+#The syntax of geom_bar is a little different than #geom_histogram().  Importantly, we need to include the argument
+#stat="identity" so that the geom_bar function knows which bars
+#represent which colors.
 mm_colors
 ggplot(data=mm_colors, aes(x = Colors, y = Amount)) + geom_bar(stat="identity")
 ```
 
 ```{r}
+#Here, we adjust the width and fill color of our bar plot.
+#We also alter the background theme of the plot with the 
+#theme_minimal() function.
 ggplot(data=mm_colors, aes(x = Colors, y = Amount)) + geom_bar(stat="identity", width=0.5, fill="steelblue") +
   theme_minimal()
 ```
 ```{r}
+#In order to change the fill color of each bar in our bar chart,
+#We use ggplot(aes(fill=Colors)) to indicate we want to track 
+#fill color with the Colors variable.
+#We assign the colors to each category with scale_fill_manual().
 ggplot(data=mm_colors, aes(x = Colors, y = Amount, fill=Colors)) +   geom_bar(stat="identity", width=0.5) +
   scale_fill_manual(values=c("blue","brown","green","orange","red","yellow")) 
 
