@@ -1,0 +1,80 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Cmd+Shift+Enter*. 
+
+```{r}
+#Load the ggplot library
+library(ggplot2)
+```
+
+```{r}
+#Read in data from csv files and assign to variable names.  I have #provided the full path names, but if you are working from an R 
+#Notebook or R Script in the same directory as the file you wish #to work with, you can provide the relative path name. 
+
+mm_weight <- read.csv(file="~/mm_statistics/mm_weight.csv",
+                      header=TRUE,
+                      sep=",")
+#Write a line of code to read in the csv file for mm_numbers
+
+```
+
+```{r}
+#Use the built-in range function to calculate the range for the mm_weight and mm_numbers datasets.
+range(mm_weight[,2])
+
+#Write a line of code to calculate the range of mm_numbers
+```
+```{r}
+#Calculate the interquartile range for both mm_weight and mm_numbers
+
+IQR(mm_weight[,2])
+
+#Write a line of code to calculate the interquartile range for mm_numbers
+
+
+```
+
+```{r}
+#Not very informative on its own!  A more useful function is 
+#the built-in R function summary(), which provides a number of useful summary statistics:
+
+summary(mm_weight[,2])
+
+#Write a line of code to print summary statistics for mm_numbers
+```
+
+```{r}
+#Let's calculate variance and standard deviation for mm_weight:
+
+#The variance...
+var(mm_weight[,2])
+
+#The standard deviation...
+sd(mm_weight[,2])
+
+#Remember your variance is always in units squared!
+```
+
+```{r}
+#Let's create a boxplot to visualize the spread of our data.
+#Later, we'll create a more elaborate version in ggplot, 
+#But for now, let's just use R's built-in boxplot() function.
+
+boxplot(mm_weight[,2])
+
+#The rectangle shows the interquartile range, the black horizontal bar is the median, and the ticks at top and bottom show the highest and lowest values.
+```
+
+
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Cmd+Shift+K* to preview the HTML file). 
+
+The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+

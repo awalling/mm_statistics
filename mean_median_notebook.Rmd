@@ -56,13 +56,14 @@ ggplot(data=mm_weight, aes(mm_weight$Weight.in.grams)) +
 ```
 
 ```{r}
-#To calculate the mean and median numerically...
-#Use the built-in functions provided by R!
-#Remember to select the appropriate column from your data frame.
-mean_mm_weight <- mean(mm_weight[,2])
-mean_mm_weight
-median_mm_weight <- median(mm_weight[,2])
-median_mm_weight
+#To get numerical values for your measures of central tendency, use
+#Built-in functions provided by R.  
+
+#The mean function is built in...
+mean(mm_weight[,2])
+
+#And so is the function for calculating the median!
+median(mm_weight[,2])
 ```
 
 Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*.
@@ -70,4 +71,3 @@ Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by press
 When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Cmd+Shift+K* to preview the HTML file). 
 
 The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
-
