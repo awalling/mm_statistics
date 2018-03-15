@@ -177,72 +177,37 @@ $(document).ready(function () {
 <p>Try executing this chunk by clicking the <em>Run</em> button within the chunk or by placing your cursor inside it and pressing <em>Cmd+Shift+Enter</em>.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI1RvZGF5IHdlJ2xsIGJlIHVzaW5nIGEgZGF0YXNldCwgY2FycywgdGhhdCBpcyBidWlsdCBpbnRvIHRoaXMgZGlzdHJpYnV0aW9uIG9mIFJTdHVkaW8uXG4jRmlyc3QsIGV4YW1pbmUgdGhlIHN0cnVjdHVyZSBvZiB0aGUgZGF0YWZyYW1lIGNhcnMuICBIb3cgbWFueSB2ZWN0b3JzIGRvZXMgdGhpcyBkYXRhZnJhbWUgY29uc2lzdCBvZj9cbnN0cihjYXJzKVxuYGBgIn0= -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI1RvZGF5IHdlJ2xsIGJlIHVzaW5nIGEgZGF0YXNldCwgY2FycywgdGhhdCBpcyBidWlsdCBpbnRvIHRoaXMgZGlzdHJpYnV0aW9uIG9mIFJTdHVkaW8uXG4jRmlyc3QsIGV4YW1pbmUgdGhlIHN0cnVjdHVyZSBvZiB0aGUgZGF0YWZyYW1lIGNhcnMgdXNpbmcgc3RyKCkuICBIb3cgbWFueSB2ZWN0b3JzIGRvZXMgdGhpcyBkYXRhZnJhbWUgY29uc2lzdCBvZj9cbiNXaGF0IGlzIHRoZSBzYW1wbGUgc2l6ZSBmb3Igb2JzZXJ2YXRpb24gb2YgY2FyIHNwZWVkP1xuYGBgIn0= -->
 <pre class="r"><code>#Today we'll be using a dataset, cars, that is built into this distribution of RStudio.
-#First, examine the structure of the dataframe cars.  How many vectors does this dataframe consist of?
-str(cars)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiJ2RhdGEuZnJhbWUnOlx0NTAgb2JzLiBvZiAgMiB2YXJpYWJsZXM6XG4gJCBzcGVlZDogbnVtICA0IDQgNyA3IDggOSAxMCAxMCAxMCAxMSAuLi5cbiAkIGRpc3QgOiBudW0gIDIgMTAgNCAyMiAxNiAxMCAxOCAyNiAzNCAxNyAuLi5cbiJ9 -->
-<pre><code>'data.frame':   50 obs. of  2 variables:
- $ speed: num  4 4 7 7 8 9 10 10 10 11 ...
- $ dist : num  2 10 4 22 16 10 18 26 34 17 ...</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI1doYXQgaXMgdGhlIHNhbXBsZSBzaXplIGZvciBvYnNlcnZhdGlvbiBvZiBjYXIgc3BlZWQ/XG5gYGAifQ== -->
-<pre class="r"><code>#What is the sample size for observation of car speed?</code></pre>
+#First, examine the structure of the dataframe cars using str().  How many vectors does this dataframe consist of?
+#What is the sample size for observation of car speed?</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI1NlY29uZCwgdXNlIHRoZSBzdW1tYXJ5IGZ1bmN0aW9uIHRvIGV2YWx1YXRlIHRoZSBjZW50cmFsIHRlbmRhbmN5IGFuZCBzcHJlYWQgb2YgdGhlIHNwZWVkIHZlY3RvciBmcm9tIHRoZSBjYXJzIGRhdGFmcmFtZS5cbnN1bW1hcnkoY2FycyRzcGVlZClcbmBgYCJ9 -->
-<pre class="r"><code>#Second, use the summary function to evaluate the central tendancy and spread of the speed vector from the cars dataframe.
-summary(cars$speed)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI1NlY29uZCwgdXNlIHRoZSBzdW1tYXJ5IGZ1bmN0aW9uIHRvIGV2YWx1YXRlIHRoZSBjZW50cmFsIHRlbmRhbmN5IGFuZCBzcHJlYWQgb2YgdGhlIHNwZWVkIHZlY3RvciBmcm9tIHRoZSBjYXJzIGRhdGFmcmFtZS5cbmBgYCJ9 -->
+<pre class="r"><code>#Second, use the summary function to evaluate the central tendancy and spread of the speed vector from the cars dataframe.</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiICAgTWluLiAxc3QgUXUuICBNZWRpYW4gICAgTWVhbiAzcmQgUXUuICAgIE1heC4gXG4gICAgNC4wICAgIDEyLjAgICAgMTUuMCAgICAxNS40ICAgIDE5LjAgICAgMjUuMCBcbiJ9 -->
-<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-    4.0    12.0    15.0    15.4    19.0    25.0 </code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2QoY2FycyRzcGVlZClcbmBgYCJ9 -->
-<pre class="r"><code>sd(cars$speed)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDUuMjg3NjQ0XG4ifQ== -->
-<pre><code>[1] 5.287644</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaW5zdGFsbC5wYWNrYWdlcyhcIkJTREFcIilcbmBgYCJ9 -->
-<pre class="r"><code>install.packages(&quot;BSDA&quot;)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI1RoZXJlJ3MgYSBoYW5keSBwYWNrYWdlLCBCU0RBIChmb3IgYmFzaWMgc3RhdGlzdGljcyBhbmQgZGF0YSBhbmFseXNpcykgdGhhdCBjb250YWlucyBhIGZ1bmN0aW9uIGZvciB0aGUgei10ZXN0LiAgSW5zdGFsbCB0aGUgcGFja2FnZSBhbmQgbG9hZCB0aGUgbGlicmFyeTpcbmluc3RhbGwucGFja2FnZXMoXCJCU0RBXCIpXG5gYGAifQ== -->
+<pre class="r"><code>#There's a handy package, BSDA (for basic statistics and data analysis) that contains a function for the z-test.  Install the package and load the library:
+install.packages(&quot;BSDA&quot;)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoidHJ5aW5nIFVSTCAnaHR0cHM6Ly9jcmFuLnJzdHVkaW8uY29tL2Jpbi9tYWNvc3gvZWwtY2FwaXRhbi9jb250cmliLzMuNC9CU0RBXzEuMi4wLnRneidcbkNvbnRlbnQgdHlwZSAnYXBwbGljYXRpb24veC1nemlwJyBsZW5ndGggODQ1NTU5IGJ5dGVzICg4MjUgS0IpXG49PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PVxuZG93bmxvYWRlZCA4MjUgS0JcbiJ9 -->
-<pre><code>trying URL 'https://cran.rstudio.com/bin/macosx/el-capitan/contrib/3.4/BSDA_1.2.0.tgz'
-Content type 'application/x-gzip' length 845559 bytes (825 KB)
-==================================================
-downloaded 825 KB</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiXG5UaGUgZG93bmxvYWRlZCBiaW5hcnkgcGFja2FnZXMgYXJlIGluXG5cdC92YXIvZm9sZGVycy9wcC92MjRfY2tmZDV4MzVqd2hwZ2R0amdjNHIwMDAwZ3EvVC8vUnRtcEVEbndvVS9kb3dubG9hZGVkX3BhY2thZ2VzXG4ifQ== -->
-<pre><code>
-The downloaded binary packages are in
-    /var/folders/pp/v24_ckfd5x35jwhpgdtjgc4r0000gq/T//RtmpEDnwoU/downloaded_packages</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiRXJyb3IgaW4gaW5zdGFsbC5wYWNrYWdlcyA6IFVwZGF0aW5nIGxvYWRlZCBwYWNrYWdlc1xuIn0= -->
+<pre><code>Error in install.packages : Updating loaded packages</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShCU0RBKVxuYGBgIn0= -->
 <pre class="r"><code>library(BSDA)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiTG9hZGluZyByZXF1aXJlZCBwYWNrYWdlOiBsYXR0aWNlXG5cbkF0dGFjaGluZyBwYWNrYWdlOiDigJhCU0RB4oCZXG5cblRoZSBmb2xsb3dpbmcgb2JqZWN0IGlzIG1hc2tlZCBmcm9tIOKAmHBhY2thZ2U6ZGF0YXNldHPigJk6XG5cbiAgICBPcmFuZ2VcbiJ9 -->
-<pre><code>Loading required package: lattice
-
-Attaching package: ‘BSDA’
-
-The following object is masked from ‘package:datasets’:
-
-    Orange</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI1RvZGF5LCBJIHdvdWxkIGxpa2UgeW91IHRvIHRlc3Qgd2hldGhlciB0aGUgdHJ1ZSBtZWFuIGZvciBjYXIgc3BlZWQgaXMgc2lnbmlmaWNhbnRseSBncmVhdGVyIHRoYW4gdGhlIGFzc3VtZWQgbWVhbiBvZiAxNSBtcGgsIHdpdGggYSBzdGFuZGFyZCBkZXZpYXRpb24gb2YgNCBtcGguXG4jVG8gZG8gdGhpcywgd2UgbmVlZCB0byB1c2UgdGhlIHoudGVzdCBmdW5jdGlvbjpcbiNIZXJlJ3MgaG93IHRoZSBmdW5jdGlvbiB3b3JrczpcbiNUbyBjb25kdWN0IGEgb25lLXNhbXBsZSwgdXBwZXItdGFpbGVkIFotdGVzdCAodGhlIHNhbWUga2luZCBvZiB0ZXN0IHdlIGNvbmR1Y3RlZCBiZWZvcmUpLi4uXG4jRGVmaW5lIHRoZSBkYXRhc2V0IHdpdGggdGhlIGFyZ3VtZW50IHggPSBjYXJzJHNwZWVkIChUaGlzIGZ1bmN0aW9uIHdpbGwgY2FsY3VsYXRlIHRoZSBcbiNzYW1wbGUgbWVhbiB4LWJhciBmb3IgeW91KVxuI0RlZmluZSB0aGUgcG9wdWxhdGlvbiBtZWFuIGFuZCBzdGFuZGFyZCBkZXZpYXRpb24gd2l0aCBtdSBhbmQgc2lnbWEueFxuI0RlZmluZSB0aGUgYWx0ZXJuYXRpdmUgaHlwb3RoZXNpcywgdGhhdCB0aGUgdHJ1ZSBtZWFuIGlzIGdyZWF0ZXIgdGhhbiB0aGUgYXNzdW1lZCBtZWFuIG9mIDE1XG56LnRlc3QoeCA9IGNhcnMkc3BlZWQsIG11ID0gMTUsIHNpZ21hLnggPSA0LCBhbHRlcm5hdGl2ZSA9IFwiZ3JlYXRlclwiLCBjb25mLmxldmVsID0gMC45KVxuYGBgIn0= -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI1RvZGF5LCBJIHdvdWxkIGxpa2UgeW91IHRvIHRlc3Qgd2hldGhlciB0aGUgdHJ1ZSBtZWFuIGZvciBjYXIgc3BlZWQgaXMgc2lnbmlmaWNhbnRseSBncmVhdGVyIHRoYW4gdGhlIGFzc3VtZWQgbWVhbiBvZiAxNSBtcGgsIHdpdGggYSBzdGFuZGFyZCBkZXZpYXRpb24gb2YgNCBtcGguXG4jVG8gZG8gdGhpcywgd2UgbmVlZCB0byB1c2UgdGhlIHoudGVzdCBmdW5jdGlvbjpcbiNIZXJlJ3MgaG93IHRoZSBmdW5jdGlvbiB3b3JrczpcbiNUbyBjb25kdWN0IGEgb25lLXNhbXBsZSwgdXBwZXItdGFpbGVkIFotdGVzdCAodGhlIHNhbWUga2luZCBvZiB0ZXN0IHdlIGNvbmR1Y3RlZCBiZWZvcmUpLi4uXG4jRGVmaW5lIHRoZSBkYXRhc2V0IHdpdGggdGhlIGFyZ3VtZW50IHggPSBjYXJzJHNwZWVkIChUaGlzIGZ1bmN0aW9uIHdpbGwgY2FsY3VsYXRlIHRoZSBcbiNzYW1wbGUgbWVhbiB4LWJhciBmb3IgeW91KVxuI0RlZmluZSB0aGUgcG9wdWxhdGlvbiBtZWFuIGFuZCBzdGFuZGFyZCBkZXZpYXRpb24gd2l0aCBtdSBhbmQgc2lnbWEueFxuI0RlZmluZSB0aGUgYWx0ZXJuYXRpdmUgaHlwb3RoZXNpcywgdGhhdCB0aGUgdHJ1ZSBtZWFuIGlzIGdyZWF0ZXIgdGhhbiB0aGUgYXNzdW1lZCBtZWFuIG9mIDE1XG4jei50ZXN0KHggPSBjYXJzJHNwZWVkLCBtdSA9IDE1LCBzaWdtYS54ID0gNCwgYWx0ZXJuYXRpdmUgPSBcImdyZWF0ZXJcIilcbiNIb3cgd291bGQgeW91IGludGVycHJldCB0aGUgcmVzdWx0cyBvZiB0aGlzIHotdGVzdD9cbmBgYCJ9 -->
 <pre class="r"><code>#Today, I would like you to test whether the true mean for car speed is significantly greater than the assumed mean of 15 mph, with a standard deviation of 4 mph.
 #To do this, we need to use the z.test function:
 #Here's how the function works:
@@ -251,74 +216,37 @@ The following object is masked from ‘package:datasets’:
 #sample mean x-bar for you)
 #Define the population mean and standard deviation with mu and sigma.x
 #Define the alternative hypothesis, that the true mean is greater than the assumed mean of 15
-z.test(x = cars$speed, mu = 15, sigma.x = 4, alternative = &quot;greater&quot;, conf.level = 0.9)</code></pre>
+#z.test(x = cars$speed, mu = 15, sigma.x = 4, alternative = &quot;greater&quot;)
+#How would you interpret the results of this z-test?</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiXG5cdE9uZS1zYW1wbGUgei1UZXN0XG5cbmRhdGE6ICBjYXJzJHNwZWVkXG56ID0gMC43MDcxMSwgcC12YWx1ZSA9IDAuMjM5OFxuYWx0ZXJuYXRpdmUgaHlwb3RoZXNpczogdHJ1ZSBtZWFuIGlzIGdyZWF0ZXIgdGhhbiAxNVxuOTAgcGVyY2VudCBjb25maWRlbmNlIGludGVydmFsOlxuIDE0LjY3NTA0ICAgICAgIE5BXG5zYW1wbGUgZXN0aW1hdGVzOlxubWVhbiBvZiB4IFxuICAgICAxNS40IFxuIn0= -->
-<pre><code>
-    One-sample z-Test
-
-data:  cars$speed
-z = 0.70711, p-value = 0.2398
-alternative hypothesis: true mean is greater than 15
-90 percent confidence interval:
- 14.67504       NA
-sample estimates:
-mean of x 
-     15.4 </code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI05vdyBsZXQncyBjb25kdWN0IGEgei10ZXN0IG9uIHRoZSB3ZWlnaHQgb2YgTSZNJ3MgcGVyIHBhY2thZ2Ugb2YgZnVuLXNpemUgcGVhbnV0IE0mTSdzLlxuI1doYXQncyB0aGUgZmlyc3QgdGhpbmcgd2UgbmVlZCB0byBkbz8gIFJlYWQgaW4gb3VyIGRhdGEhXG5tbV93ZWlnaHQgPC0gcmVhZC5jc3YoZmlsZT1cIn4vbW1fc3RhdGlzdGljcy9tbV93ZWlnaHQuY3N2XCIsIGhlYWRlcj1UUlVFLCBzZXA9XCIsXCIpXG5tbV93ZWlnaHRcbmBgYCJ9 -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI05vdyBsZXQncyBjb25kdWN0IGEgei10ZXN0IG9uIHRoZSB3ZWlnaHQgb2YgTSZNJ3MgcGVyIHBhY2thZ2Ugb2YgZnVuLXNpemUgcGVhbnV0IE0mTSdzLlxuI1doYXQncyB0aGUgZmlyc3QgdGhpbmcgd2UgbmVlZCB0byBkbz8gIFJlYWQgaW4gb3VyIGRhdGEhXG4jbW1fd2VpZ2h0IDwtIFxuI21tX3dlaWdodFxuYGBgIn0= -->
 <pre class="r"><code>#Now let's conduct a z-test on the weight of M&amp;M's per package of fun-size peanut M&amp;M's.
 #What's the first thing we need to do?  Read in our data!
-mm_weight &lt;- read.csv(file=&quot;~/mm_statistics/mm_weight.csv&quot;, header=TRUE, sep=&quot;,&quot;)
-mm_weight</code></pre>
+#mm_weight &lt;- 
+#mm_weight</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibmNvbCI6MiwibnJvdyI6MzV9LCJyZGYiOiJINHNJQUFBQUFBQUFBMTJTUzFQQ01CU0YwNVNIVktYU0lyNmZyTW1DbitDNGR1Rkd0Z0ZpNlZoU3BpMkRTMzg1ZWhKdVptbzc4elhKeWIwbjl6WjlmNTFOZzFuQUdPUE1iL21NKzVpMk9GNGVhN0dlR2I4WjgyTWJ3TmdwR052Tnc5cEdnemJvZ0M0NEFpYlJtQjZERThycmd4Q2NnUUdJZ1BFZGduTXdBaGZnRWx5QmEzQURic0VkdUFjUDRCRThnV2VxeGRVVUVRUHlpMmtjMG56UWlIRjZUSFhGdGR5b0ZqOGk0cHBuUkgwNGZVZ2E3ZjM3Z0cwdDE2cWtCRTVpOENJVDhiWmR6MVZCU3ZpaDBtUlZpVlNMcEpEcnN1SFNLL0tkY0U2bVpmN0Q3RE51SHJmSVpPbU9jMkt3bEpVVW4vQlZXTzBiS2QxOFU2VzVSaEtQNlRMcnlWN1JFTUt0TnBVc0o0dlZWbjlOcG5UWjNxRWdXNTFYdXh6NldjeVIvSmVzMm1UVlVUcEp0WEsxWjNLdU1scjAwYkZ0V0d5S1ZGZXVFNmlscVBKS3VyaGdrV2RPc2IyeC9SOTlBUEdXMWdJQUFBPT0ifQ== -->
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["Bag.Number"],"name":[1],"type":["int"],"align":["right"]},{"label":["Weight.in.grams"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"1","2":"18"},{"1":"2","2":"18"},{"1":"3","2":"17"},{"1":"4","2":"21"},{"1":"5","2":"19"},{"1":"6","2":"21"},{"1":"7","2":"20"},{"1":"8","2":"19"},{"1":"9","2":"17"},{"1":"10","2":"18"},{"1":"11","2":"18"},{"1":"12","2":"17"},{"1":"13","2":"20"},{"1":"14","2":"19"},{"1":"15","2":"19"},{"1":"16","2":"15"},{"1":"17","2":"19"},{"1":"18","2":"17"},{"1":"19","2":"21"},{"1":"20","2":"18"},{"1":"21","2":"17"},{"1":"22","2":"18"},{"1":"23","2":"22"},{"1":"24","2":"22"},{"1":"25","2":"19"},{"1":"26","2":"19"},{"1":"27","2":"21"},{"1":"28","2":"18"},{"1":"29","2":"16"},{"1":"30","2":"22"},{"1":"31","2":"19"},{"1":"32","2":"20"},{"1":"33","2":"18"},{"1":"34","2":"21"},{"1":"35","2":"18"}],"options":{"columns":{"min":{},"max":[10],"total":[2]},"rows":{"min":[10],"max":[10],"total":[35]},"pages":{}}}
-  </script>
-</div>
-<!-- rnb-frame-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI1VzZSB0aGUgc3VtbWFyeSBmdW5jdGlvbiB0byBnZXQgYSBtZWFzdXJlIG9mIGNlbnRyYWwgdGVuZGVuY3kgYW5kIHNwcmVhZCBmb3IgdGhpcyBzYW1wbGUgb2YgTSZNJ3M6XG5zdW1tYXJ5KG1tX3dlaWdodCRXZWlnaHQuaW4uZ3JhbXMpXG5gYGAifQ== -->
-<pre class="r"><code>#Use the summary function to get a measure of central tendency and spread for this sample of M&amp;M's:
-summary(mm_weight$Weight.in.grams)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI1VzZSB0aGUgc3VtbWFyeSBmdW5jdGlvbiB0byBnZXQgYSBtZWFzdXJlIG9mIGNlbnRyYWwgdGVuZGVuY3kgYW5kIHNwcmVhZCBmb3IgdGhpcyBzYW1wbGUgb2YgTSZNJ3M6XG5gYGAifQ== -->
+<pre class="r"><code>#Use the summary function to get a measure of central tendency and spread for this sample of M&amp;M's:</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiICAgTWluLiAxc3QgUXUuICBNZWRpYW4gICAgTWVhbiAzcmQgUXUuICAgIE1heC4gXG4gIDE1LjAwICAgMTguMDAgICAxOS4wMCAgIDE4Ljg5ICAgMjAuMDAgICAyMi4wMCBcbiJ9 -->
-<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-  15.00   18.00   19.00   18.89   20.00   22.00 </code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI1RoZSBwdWJsaXNoZWQgdmFsdWUgZm9yIHRoZSB3ZWlnaHQgb2YgYSBiYWcgb2YgZnVuLXNpemUgcGVhbnV0IE0mTSdzIGlzIDE4IGdyYW1zLCB3aXRoIGEgc3RhbmRhcmQgZGV2aWF0aW9uIG9mIDAuNzUgZ3JhbXMuICBMZXQncyB0ZXN0IHRvIHNlZSB3aGV0aGVyIG91ciBzYW1wbGUgb2YgZnVuLXNpemUgYmFncyBvZiBwZWFudXQgTSZNJ3MgY2FtZSBmcm9tIGEgcG9wdWxhdGlvbiB3aXRoIGEgdHJ1ZSBtZWFuIHZhbHVlIG9mIGF0IGxlYXN0IDE4IGdyYW1zLlxuI1doYXQncyBvdXIgbnVsbCBoeXBvdGhlc2lzP1xuI1doYXQncyBvdXIgYWx0ZXJuYXRpdmUgaHlwb3RoZXNpcz9cbiNDb25kdWN0IHRoZSB6IHRlc3QuIFxuei50ZXN0KHggPSBtbV93ZWlnaHQkV2VpZ2h0LmluLmdyYW1zLCBtdSA9IDE4LCBzaWdtYS54ID0gMC43NSwgYWx0ZXJuYXRpdmUgPSBcImdyZWF0ZXJcIilcbmBgYCJ9 -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI1RoZSBwdWJsaXNoZWQgdmFsdWUgZm9yIHRoZSB3ZWlnaHQgb2YgYSBiYWcgb2YgZnVuLXNpemUgcGVhbnV0IE0mTSdzIGlzIDE4IGdyYW1zLCB3aXRoIGEgc3RhbmRhcmQgZGV2aWF0aW9uIG9mIDAuNzUgZ3JhbXMuICBMZXQncyB0ZXN0IHRvIHNlZSB3aGV0aGVyIG91ciBzYW1wbGUgb2YgZnVuLXNpemUgYmFncyBvZiBwZWFudXQgTSZNJ3MgY2FtZSBmcm9tIGEgcG9wdWxhdGlvbiB3aXRoIGEgdHJ1ZSBtZWFuIHZhbHVlIG9mIGF0IGxlYXN0IDE4IGdyYW1zLlxuI1doYXQncyBvdXIgbnVsbCBoeXBvdGhlc2lzP1xuI1doYXQncyBvdXIgYWx0ZXJuYXRpdmUgaHlwb3RoZXNpcz9cbiNDb25kdWN0IHRoZSB6IHRlc3QuICBXaGF0IHZhbHVlcyBkbyB5b3UgbmVlZCB0byBwdXQgaW4gZm9yIHgsIG11LCBzaWdtYS54LCBhbmQgYWx0ZXJuYXRpdmU/XG4jei50ZXN0KClcbmBgYCJ9 -->
 <pre class="r"><code>#The published value for the weight of a bag of fun-size peanut M&amp;M's is 18 grams, with a standard deviation of 0.75 grams.  Let's test to see whether our sample of fun-size bags of peanut M&amp;M's came from a population with a true mean value of at least 18 grams.
 #What's our null hypothesis?
 #What's our alternative hypothesis?
-#Conduct the z test. 
-z.test(x = mm_weight$Weight.in.grams, mu = 18, sigma.x = 0.75, alternative = &quot;greater&quot;)</code></pre>
+#Conduct the z test.  What values do you need to put in for x, mu, sigma.x, and alternative?
+#z.test()</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiXG5cdE9uZS1zYW1wbGUgei1UZXN0XG5cbmRhdGE6ICBtbV93ZWlnaHQkV2VpZ2h0LmluLmdyYW1zXG56ID0gNi45ODY2LCBwLXZhbHVlID0gMS40MDhlLTEyXG5hbHRlcm5hdGl2ZSBoeXBvdGhlc2lzOiB0cnVlIG1lYW4gaXMgZ3JlYXRlciB0aGFuIDE4XG45NSBwZXJjZW50IGNvbmZpZGVuY2UgaW50ZXJ2YWw6XG4gMTguNjc3MTkgICAgICAgTkFcbnNhbXBsZSBlc3RpbWF0ZXM6XG5tZWFuIG9mIHggXG4gMTguODg1NzEgXG4ifQ== -->
-<pre><code>
-    One-sample z-Test
-
-data:  mm_weight$Weight.in.grams
-z = 6.9866, p-value = 1.408e-12
-alternative hypothesis: true mean is greater than 18
-95 percent confidence interval:
- 18.67719       NA
-sample estimates:
-mean of x 
- 18.88571 </code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>Add a new chunk by clicking the <em>Insert Chunk</em> button on the toolbar or by pressing <em>Cmd+Option+I</em>.</p>
