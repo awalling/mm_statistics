@@ -1,0 +1,85 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Cmd+Shift+Enter*. 
+
+```{r}
+#Today we'll be using a dataset, cars, that is built into this distribution of RStudio.
+
+#First, examine the structure of the dataframe cars using str().  How many vectors does this dataframe consist of?
+
+
+#What is the sample size for observation of car speed?
+```
+
+```{r}
+#Second, use the summary function to evaluate the central tendancy and spread of the speed vector from the cars dataframe.
+
+
+```
+
+```{r}
+#There's a handy package, BSDA (for basic statistics and data analysis) that contains a function for the z-test.  Install the package and load the library:
+install.packages("BSDA")
+library(BSDA)
+```
+
+```{r}
+#Today, I would like you to test whether the true mean for car speed is significantly greater than the assumed mean of 15 mph, with a standard deviation of 4 mph.
+
+#To do this, we need to use the z.test function:
+
+#Here's how the function works:
+#To conduct a one-sample, upper-tailed Z-test (the same kind of test we conducted before)...
+
+#Define the dataset with the argument x = cars$speed (This function will calculate the 
+#sample mean x-bar for you)
+
+#Define the population mean and standard deviation with mu and sigma.x
+
+#Define the alternative hypothesis, that the true mean is greater than the assumed mean of 15
+z.test(x = cars$speed, mu = 15, sigma.x = 4, alternative = "greater")
+
+#How would you interpret the results of this z-test?
+```
+
+```{r}
+#Now let's conduct a z-test on the weight of M&M's per package of fun-size peanut M&M's.
+
+#What's the first thing we need to do?  Read in our data!
+
+mm_weight <- 
+
+mm_weight
+
+
+```
+
+```{r}
+#Use the summary function to get a measure of central tendency and spread for this sample of M&M's:
+
+
+```
+
+```{r}
+#The published value for the weight of a bag of fun-size peanut M&M's is 18 grams, with a standard deviation of 0.75 grams.  Let's test to see whether our sample of fun-size bags of peanut M&M's came from a population with a true mean value of at least 18 grams.
+
+#What's our null hypothesis?
+
+#What's our alternative hypothesis?
+
+#Conduct the z test.  What values do you need to put in for x, mu, sigma.x, and alternative?
+
+z.test()
+```
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Cmd+Shift+K* to preview the HTML file). 
+
+The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+
