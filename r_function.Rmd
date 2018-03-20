@@ -1,0 +1,63 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Cmd+Shift+Enter*. 
+
+```{r}
+#First, let's grab some data: how about the mm_weight dataset?  Read in the .csv file.
+
+mm_weight <- 
+
+
+```
+
+```{r}
+#Let's create our own function to output the mean, median, and standard deviation for a vector or column from a data frame.
+
+#We will name this function summarize
+
+summarize <- function(x) {
+  mean_x <- mean(x)
+  median_x <- median(x)
+  stdev_x <- sd(x)
+  
+  #the function cat, being called within summarize, is equivalent to print in Python
+  #You can use it to print out strings and variables on the same line.
+  #The symbol "\n" instructs R to create a new line.
+  
+  cat("Mean:",mean_x,"\n",
+      "Median:",median_x,"\n",
+      "Standard Deviation:",stdev_x)
+}
+
+#Call the function to test it out!
+summarize()
+```
+
+```{r}
+#Can you create a function to compute the Z-score for the mm_weight dataframe?
+
+#What values do you need to know?  Refer to your z-test notebook from Thursday and your slides for hints that will help you.
+
+z_score <- 
+  
+
+
+#Call the function.  Does it match the value for a Z-score you obtained last Thursday?
+z_score()
+```
+
+```{r}
+#Leave this blank to include modify your z-score function to calculate probabilities associated with each Z-score.
+```
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Cmd+Shift+K* to preview the HTML file). 
+
+The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+
