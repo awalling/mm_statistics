@@ -185,23 +185,27 @@ mm_weight &lt;- read.csv(file=&quot;~/mm_statistics/mm_weight.csv&quot;, header=
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI0xldCdzIGNyZWF0ZSBvdXIgb3duIGZ1bmN0aW9uIHRvIG91dHB1dCB0aGUgbWVhbiwgbWVkaWFuLCBhbmQgc3RhbmRhcmQgZGV2aWF0aW9uIGZvciBhIHZlY3RvciBvciBjb2x1bW4gZnJvbSBhIGRhdGEgZnJhbWUuXG4jV2Ugd2lsbCBjYWxsIHRoaXMgZnVuY3Rpb24gc3VtbWFyaXplXG5zdW1tYXJpemUgPC0gZnVuY3Rpb24oeCkge1xuICBtZWFuX3ggPC0gbWVhbih4KVxuICBtZWRpYW5feCA8LSBtZWRpYW4oeClcbiAgc3RkZXZfeCA8LSBzZCh4KVxuICBjYXQoXCJNZWFuOlwiLG1lYW5feCxcIlxcblwiLFxuICAgICAgXCJNZWRpYW46XCIsbWVkaWFuX3gsXCJcXG5cIixcbiAgICAgIFwiU3RhbmRhcmQgRGV2aWF0aW9uOlwiLHN0ZGV2X3gpXG59XG5zdW1tYXJpemUobW1fd2VpZ2h0JFdlaWdodC5pbi5ncmFtcylcbmBgYCJ9 -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI0xldCdzIGNyZWF0ZSBvdXIgb3duIGZ1bmN0aW9uIHRvIG91dHB1dCB0aGUgbWVhbiwgbWVkaWFuLCBhbmQgc3RhbmRhcmQgZGV2aWF0aW9uIGZvciBhIHZlY3RvciBvciBjb2x1bW4gZnJvbSBhIGRhdGEgZnJhbWUuXG4jV2Ugd2lsbCBuYW1lIHRoaXMgZnVuY3Rpb24gc3VtbWFyaXplXG5zdW1tYXJpemUgPC0gZnVuY3Rpb24oeCkge1xuICBtZWFuX3ggPC0gbWVhbih4KVxuICBtZWRpYW5feCA8LSBtZWRpYW4oeClcbiAgc3RkZXZfeCA8LSBzZCh4KVxuICBcbiAgI3RoZSBmdW5jdGlvbiBjYXQsIGJlaW5nIGNhbGxlZCB3aXRoaW4gc3VtbWFyaXplLCBpcyBlcXVpdmFsZW50IHRvIHByaW50IGluIFB5dGhvblxuICAjWW91IGNhbiB1c2UgaXQgdG8gcHJpbnQgb3V0IHN0cmluZ3MgYW5kIHZhcmlhYmxlcyBvbiB0aGUgc2FtZSBsaW5lLlxuICAjVGhlIHN5bWJvbCBcIlxcblwiIGluc3RydWN0cyBSIHRvIGNyZWF0ZSBhIG5ldyBsaW5lLlxuICBcbiAgY2F0KFwiTWVhbjpcIixtZWFuX3gsXCJcXG5cIixcbiAgICAgIFwiTWVkaWFuOlwiLG1lZGlhbl94LFwiXFxuXCIsXG4gICAgICBcIlN0YW5kYXJkIERldmlhdGlvbjpcIixzdGRldl94KVxufVxuI0NhbGwgdGhlIGZ1bmN0aW9uIHRvIHRlc3QgaXQgb3V0IVxuc3VtbWFyaXplKClcbmBgYCJ9 -->
 <pre class="r"><code>#Let's create our own function to output the mean, median, and standard deviation for a vector or column from a data frame.
-#We will call this function summarize
+#We will name this function summarize
 summarize &lt;- function(x) {
   mean_x &lt;- mean(x)
   median_x &lt;- median(x)
   stdev_x &lt;- sd(x)
+  
+  #the function cat, being called within summarize, is equivalent to print in Python
+  #You can use it to print out strings and variables on the same line.
+  #The symbol &quot;\n&quot; instructs R to create a new line.
+  
   cat(&quot;Mean:&quot;,mean_x,&quot;\n&quot;,
       &quot;Median:&quot;,median_x,&quot;\n&quot;,
       &quot;Standard Deviation:&quot;,stdev_x)
 }
-summarize(mm_weight$Weight.in.grams)</code></pre>
+#Call the function to test it out!
+summarize()</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiTWVhbjogMTguODg1NzEgXG4gTWVkaWFuOiAxOSBcbiBTdGFuZGFyZCBEZXZpYXRpb246IDEuNzQ1MTAxXG4ifQ== -->
-<pre><code>Mean: 18.88571 
- Median: 19 
- Standard Deviation: 1.745101</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiRXJyb3IgaW4gbWVhbih4KSA6IGFyZ3VtZW50IFwieFwiIGlzIG1pc3NpbmcsIHdpdGggbm8gZGVmYXVsdFxuIn0= -->
+<pre><code>Error in mean(x) : argument &quot;x&quot; is missing, with no default</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
