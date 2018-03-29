@@ -177,130 +177,73 @@ $(document).ready(function () {
 <p>Try executing this chunk by clicking the <em>Run</em> button within the chunk or by placing your cursor inside it and pressing <em>Cmd+Shift+Enter</em>.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI1RvZGF5LCB3ZSdyZSBnb2luZyB0byBsZWFybiBhIGxpdHRsZSBiaXQgYWJvdXQgdGhlIHQtdGVzdC5cbiNUbyBkbyB0aGF0LCB3ZSBuZWVkIHRvIGxvYWQgaW4gYSBjb3VwbGUgb2YgZGF0YSBzZXRzLlxuI0ZpcnN0LCBsb2FkIGluIG91ciBmYWl0aGZ1bCBtbV93ZWlnaHQgZGF0YSBzZXQuXG5tbV93ZWlnaHQgPC0gcmVhZC5jc3YoZmlsZT1cIn4vbW1fc3RhdGlzdGljcy9tbV93ZWlnaHQuY3N2XCIsXG4gICAgICAgICAgICAgICAgICAgICAgc2VwPVwiLFwiLFxuICAgICAgICAgICAgICAgICAgICAgIGhlYWRlcj1UUlVFKVxuI1NlY29uZCwgbG9hZCBpbiBtbV9udW1iZXJzLmNzdlxubW1fbnVtYmVycyA8LSByZWFkLmNzdihmaWxlPVwifi9tbV9zdGF0aXN0aWNzL21tX251bWJlcnMuY3N2XCIsXG4gICAgICAgICAgICAgICAgICAgICAgIHNlcD1cIixcIixcbiAgICAgICAgICAgICAgICAgICAgICAgaGVhZGVyPVRSVUUpXG4jRmluYWxseSwgd2UncmUgZ29pbmcgdG8gdXNlIHRoZSBkYXRhIHNldCBpcmlzLCB3aGljaCBpcyBidWlsdCBpbnRvIFIuICBZb3UgZG9uJ3QgaGF2ZSB0byBsb2FkIGl0IGluLCBidXQgcHJpbnQgdGhlIGZpcnN0IGZpdmUgcm93cyBvZiB0aGUgZGF0YSBmcmFtZSB0byB0aGUgc2NyZWVuIHdpdGggaGVhZCgpOlxuaGVhZChpcmlzKVxuYGBgIn0= -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI1RvZGF5LCB3ZSdyZSBnb2luZyB0byBsZWFybiBhIGxpdHRsZSBiaXQgYWJvdXQgdGhlIHQtdGVzdC5cblxuI1RvIGRvIHRoYXQsIHdlIG5lZWQgdG8gbG9hZCBpbiBhIGNvdXBsZSBvZiBkYXRhIHNldHMuXG5cbiNGaXJzdCwgbG9hZCBpbiBvdXIgZmFpdGhmdWwgbW1fd2VpZ2h0IGRhdGEgc2V0LlxuXG5cblxuYGBgIn0= -->
 <pre class="r"><code>#Today, we're going to learn a little bit about the t-test.
+
 #To do that, we need to load in a couple of data sets.
+
 #First, load in our faithful mm_weight data set.
-mm_weight &lt;- read.csv(file=&quot;~/mm_statistics/mm_weight.csv&quot;,
-                      sep=&quot;,&quot;,
-                      header=TRUE)
-#Second, load in mm_numbers.csv
-mm_numbers &lt;- read.csv(file=&quot;~/mm_statistics/mm_numbers.csv&quot;,
-                       sep=&quot;,&quot;,
-                       header=TRUE)
-#Finally, we're going to use the data set iris, which is built into R.  You don't have to load it in, but print the first five rows of the data frame to the screen with head():
-head(iris)</code></pre>
+</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibmNvbCI6NSwibnJvdyI6Nn0sInJkZiI6Ikg0c0lBQUFBQUFBQUE0VlN6VTdDUUJCZStnZXRCUW5nWTlDRFhMelJnMGNQUmc1eVhjc0NHOWR0MHk3bzBkZlFOekxSQi9BOWpERXhRV2U3dTAycEpFNHluZW5YK1diMm0rM1YrZncwbUFjSUlRdlpqbzBzRzFMSGdrY0xPY2lYOFFFaGV3aUpDOTREOStMUnNyUjQrQ1R0T1I2OFNudUxCeG9mb2RMaUUvVzk0b1VhNytqb2EzNUg4ME1kanllbEdkNzBVL1d0NG9lcW0zNnBQaFgrM2VDOXFQNy94bmR6VHJzcmVhWDRnNzYzR0krUkxXRUZaSDF3MjZBRkVXbUI5VnV3SlhsQms1U2x1VWI4TGMxWGxOTUVOOXE1Q2NPRjZWYk5XT0pFQUJlaFhiT2M0enRpeWwwTmhqT1NZUlpkRUw0U2E0MGRLZXlhTGlvb3ZDVGlUNW5DNm1YdFdVWVNLb2ZzVGZiejlENHkwK1hDckVkMUQ1NHF0SDhhSW9JRkZqaGE1a0E1SUtTZFpvS21ISnBaNWkrcmsxdDVBK2h2dUJ5K0dDZnJEYjhkVDg3a2hObzFkWFgwYXJtclpqcm1aR1pmSG15QWNtSld5dkFOWWZxbEJ5cExrVkdXVXk2TUZFQ0xTS1N3S29QQTVScWtGSWQydjRnQ3hXUlVBd0FBIn0= -->
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Sepal.Length"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["Sepal.Width"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Petal.Length"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Petal.Width"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Species"],"name":[5],"type":["fctr"],"align":["left"]}],"data":[{"1":"5.1","2":"3.5","3":"1.4","4":"0.2","5":"setosa","_rn_":"1"},{"1":"4.9","2":"3.0","3":"1.4","4":"0.2","5":"setosa","_rn_":"2"},{"1":"4.7","2":"3.2","3":"1.3","4":"0.2","5":"setosa","_rn_":"3"},{"1":"4.6","2":"3.1","3":"1.5","4":"0.2","5":"setosa","_rn_":"4"},{"1":"5.0","2":"3.6","3":"1.4","4":"0.2","5":"setosa","_rn_":"5"},{"1":"5.4","2":"3.9","3":"1.7","4":"0.4","5":"setosa","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10],"total":[5]},"rows":{"min":[10],"max":[10],"total":[6]},"pages":{}}}
-  </script>
-</div>
-<!-- rnb-frame-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaGVhZChtbV9udW1iZXJzKVxuYGBgIn0= -->
-<pre class="r"><code>head(mm_numbers)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibmNvbCI6MiwibnJvdyI6Nn0sInJkZiI6Ikg0c0lBQUFBQUFBQUExMVFQWS9DTUF4MTB3L1VTSGRDNG5lUUFSWm14SHpEVFYzVGtpc1ZKVUZwS2hqdmwzUG5CRWVxVXNsTi9PTDNudTN2VTdQakRRY0FCbm1SQTh2eFdqRDhaVkJBN2M4blFMNEpCUUFmR0ZWNGZPZWhHcU1rUEw2dkZsRlJsSWx3cWVWTlRYaFpCN0UzeUkreUYxL3pyVldXa0xvUll0Q2lsWDNDcjYxNWlLamhqZGt2aEs5S2picFJUdEVvZ3Z3c25SUS9Gdm1ZdlJMS3l0emRZRFNTMkliR1c1SXptd0RyV2Z0T3p0dnVNdXZyZG4vd0RyU25qTnJMRmp1aS9YbFA5a2RhSldsVlN2ZURWckg1VWJacXBPUVRSdzRUaTdzZHRJdWpJRG9KWjV5TWRid3pZMFRDY1BENkJ4ZllCZW5wQVFBQSJ9 -->
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Bag.Number"],"name":[1],"type":["int"],"align":["right"]},{"label":["X..in.bag"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"1","2":"7","_rn_":"1"},{"1":"2","2":"7","_rn_":"2"},{"1":"3","2":"7","_rn_":"3"},{"1":"4","2":"6","_rn_":"4"},{"1":"5","2":"6","_rn_":"5"},{"1":"6","2":"5","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10],"total":[2]},"rows":{"min":[10],"max":[10],"total":[6]},"pages":{}}}
-  </script>
-</div>
-<!-- rnb-frame-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubWVhbihtbV9udW1iZXJzJFguLmluLmJhZylcbmBgYCJ9 -->
-<pre class="r"><code>mean(mm_numbers$X..in.bag)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDYuNzE0Mjg2XG4ifQ== -->
-<pre><code>[1] 6.714286</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2QobW1fbnVtYmVycyRYLi5pbi5iYWcpXG5gYGAifQ== -->
-<pre class="r"><code>sd(mm_numbers$X..in.bag)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDAuNzUwMzUwMVxuIn0= -->
-<pre><code>[1] 0.7503501</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI091ciBnb2FsIHRvZGF5IGlzIHRvIGRldmVsb3AgYSBmdW5jdGlvbiB0byBydW4gYSB0LXRlc3QuICBUaGUgYmFzZSBkaXN0cmlidXRpb24gb2YgUiBpbmNsdWRlcyBhIGZ1bmN0aW9uIGZvciB0aGUgdC10ZXN0LiAgVG8gZ2V0IGluZm9ybWF0aW9uIGFib3V0IGhvdyB0byB1c2UgdGhpcyBmdW5jdGlvbiwgcHVsbCB1cCB0aGUgaGVscCBwYWdlIHdpdGg6XG4/dC50ZXN0XG5gYGAifQ== -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI091ciBnb2FsIHRvZGF5IGlzIHRvIGRldmVsb3AgYSBmdW5jdGlvbiB0byBydW4gYSB0LXRlc3QuICBUaGUgYmFzZSBkaXN0cmlidXRpb24gb2YgUiBpbmNsdWRlcyBhIGZ1bmN0aW9uIGZvciB0aGUgdC10ZXN0LiAgVG8gZ2V0IGluZm9ybWF0aW9uIGFib3V0IGhvdyB0byB1c2UgdGhpcyBmdW5jdGlvbiwgcHVsbCB1cCB0aGUgaGVscCBwYWdlIHdpdGg6XG5cbj90LnRlc3RcbmBgYCJ9 -->
 <pre class="r"><code>#Our goal today is to develop a function to run a t-test.  The base distribution of R includes a function for the t-test.  To get information about how to use this function, pull up the help page with:
+
 ?t.test</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI0xldCdzIHRlc3Qgb3V0IHRoaXMgZnVuY3Rpb24uICBUbyBydW4gYSBvbmUtc2FtcGxlLCB1cHBlci10YWlsZWQgdC10ZXN0IG9uIG91ciBtbV93ZWlnaHQgZGF0YSBzZXQsIHdpdGggYSBudWxsIGh5cG90aGVzaXMgdGhhdCB0aGUgdHJ1ZSBtZWFuIHdlaWdodCBmb3IgdGhlIHBvcHVsYXRpb24gaXMgMTggZ3JhbXMsIHlvdSBjYWxsIHRoZSBmdW5jdGlvbiBhcyBmb2xsb3dzOlxudC50ZXN0KG1tX3dlaWdodCRXZWlnaHQuaW4uZ3JhbXMsIGFsdGVybmF0aXZlPVwidHdvLnNpZGVkXCIsIG11PTE4KVxuYGBgIn0= -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI0xldCdzIHRlc3Qgb3V0IHRoaXMgZnVuY3Rpb24uICBUbyBydW4gYSBvbmUtc2FtcGxlLCB1cHBlci10YWlsZWQgdC10ZXN0IG9uIG91ciBtbV93ZWlnaHQgZGF0YSBzZXQsIHdpdGggYSBudWxsIGh5cG90aGVzaXMgdGhhdCB0aGUgdHJ1ZSBtZWFuIHdlaWdodCBmb3IgdGhlIHBvcHVsYXRpb24gaXMgMTggZ3JhbXMsIHlvdSBjYWxsIHRoZSBmdW5jdGlvbiBhcyBmb2xsb3dzOlxuXG50LnRlc3QobW1fd2VpZ2h0JFdlaWdodC5pbi5ncmFtcywgYWx0ZXJuYXRpdmU9XCJ0d28uc2lkZWRcIiwgbXU9MTgpXG5cbiNSZWFkIHRoZSBvdXRwdXQgYmVsb3cgdG8gaW50ZXJwcmV0IHRoZSB0ZXN0LlxuYGBgIn0= -->
 <pre class="r"><code>#Let's test out this function.  To run a one-sample, upper-tailed t-test on our mm_weight data set, with a null hypothesis that the true mean weight for the population is 18 grams, you call the function as follows:
-t.test(mm_weight$Weight.in.grams, alternative=&quot;two.sided&quot;, mu=18)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiXG5cdE9uZSBTYW1wbGUgdC10ZXN0XG5cbmRhdGE6ICBtbV93ZWlnaHQkV2VpZ2h0LmluLmdyYW1zXG50ID0gMy4wMDI3LCBkZiA9IDM0LCBwLXZhbHVlID0gMC4wMDQ5OTFcbmFsdGVybmF0aXZlIGh5cG90aGVzaXM6IHRydWUgbWVhbiBpcyBub3QgZXF1YWwgdG8gMThcbjk1IHBlcmNlbnQgY29uZmlkZW5jZSBpbnRlcnZhbDpcbiAxOC4yODYyNSAxOS40ODUxOFxuc2FtcGxlIGVzdGltYXRlczpcbm1lYW4gb2YgeCBcbiAxOC44ODU3MSBcbiJ9 -->
-<pre><code>
-    One Sample t-test
 
-data:  mm_weight$Weight.in.grams
-t = 3.0027, df = 34, p-value = 0.004991
-alternative hypothesis: true mean is not equal to 18
-95 percent confidence interval:
- 18.28625 19.48518
-sample estimates:
-mean of x 
- 18.88571 </code></pre>
-<!-- rnb-output-end -->
+t.test(mm_weight$Weight.in.grams, alternative=&quot;two.sided&quot;, mu=18)
+
+#Read the output below to interpret the test.</code></pre>
+<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI1JlbWVtYmVyIHRoYXQgdGhlIHQtdGVzdCBoYXMgbGVzcyBjZXJ0YWludHkgYW5kIHByZWNpc2lvbiB0aGFuIHRoZSB6LXRlc3QsIHdoZXJlIHdlIGtub3cgYm90aCBtdSBhbmQgc2lnbWEuICBDb21wYXJlIHRoZSBvdXRwdXQgb2YgdGhlIHQtdGVzdCBmdW5jdGlvbiBhYm92ZSB0byB0aGUgei10ZXN0OlxubGlicmFyeShCU0RBKVxuei50ZXN0KG1tX3dlaWdodCRXZWlnaHQuaW4uZ3JhbXMsIG11ID0gMTgsIHNpZ21hLnggPSAwLjc1LCBhbHRlcm5hdGl2ZT1cInR3by5zaWRlZFwiKVxuYGBgIn0= -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI1JlbWVtYmVyIHRoYXQgdGhlIHQtdGVzdCBoYXMgbGVzcyBjZXJ0YWludHkgYW5kIHByZWNpc2lvbiB0aGFuIHRoZSB6LXRlc3QsIHdoZXJlIHdlIGtub3cgYm90aCBtdSBhbmQgc2lnbWEuICBDb21wYXJlIHRoZSBvdXRwdXQgb2YgdGhlIHQtdGVzdCBmdW5jdGlvbiBhYm92ZSB0byB0aGUgei10ZXN0OlxuXG4jRmlyc3QsIHdlIGxvYWQgdGhlIGxpYnJhcnksIEJTREEsIHRoYXQgY29udGFpbnMgdGhlIHotdGVzdCBwYWNrYWdlLi4uXG5saWJyYXJ5KEJTREEpXG5cbiNBbmQgdGhlbiB3ZSBjYWxsIHRoZSBmdW5jdGlvbi5cbnoudGVzdChtbV93ZWlnaHQkV2VpZ2h0LmluLmdyYW1zLCBtdSA9IDE4LCBzaWdtYS54ID0gMC43NSwgYWx0ZXJuYXRpdmU9XCJ0d28uc2lkZWRcIilcbmBgYCJ9 -->
 <pre class="r"><code>#Remember that the t-test has less certainty and precision than the z-test, where we know both mu and sigma.  Compare the output of the t-test function above to the z-test:
+
+#First, we load the library, BSDA, that contains the z-test package...
 library(BSDA)
+
+#And then we call the function.
 z.test(mm_weight$Weight.in.grams, mu = 18, sigma.x = 0.75, alternative=&quot;two.sided&quot;)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiXG5cdE9uZS1zYW1wbGUgei1UZXN0XG5cbmRhdGE6ICBtbV93ZWlnaHQkV2VpZ2h0LmluLmdyYW1zXG56ID0gNi45ODY2LCBwLXZhbHVlID0gMi44MTZlLTEyXG5hbHRlcm5hdGl2ZSBoeXBvdGhlc2lzOiB0cnVlIG1lYW4gaXMgbm90IGVxdWFsIHRvIDE4XG45NSBwZXJjZW50IGNvbmZpZGVuY2UgaW50ZXJ2YWw6XG4gMTguNjM3MjQgMTkuMTM0MTlcbnNhbXBsZSBlc3RpbWF0ZXM6XG5tZWFuIG9mIHggXG4gMTguODg1NzEgXG4ifQ== -->
-<pre><code>
-    One-sample z-Test
-
-data:  mm_weight$Weight.in.grams
-z = 6.9866, p-value = 2.816e-12
-alternative hypothesis: true mean is not equal to 18
-95 percent confidence interval:
- 18.63724 19.13419
-sample estimates:
-mean of x 
- 18.88571 </code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI05vdyB0aGF0IHdlJ3ZlIHJ1biB0aGUgYnVpbHQtaW4gdmVyc2lvbiBvZiB0aGUgdC10ZXN0LCBsZXQncyBzZWUgaWYgd2UgY2FuIGRldmVsb3Agb3VyIG93bi4gIElmIHlvdSBuZWVkIGEgcmVmcmVzaGVyIG9uIGhvdyB0byB3cml0ZSBhIGZ1bmN0aW9uLCByZWZlciB0byB0aGUgcl9mdW5jdGlvbiBhbmQgY2hpc3F1YXJlIG5vdGVib29rcyBmb3IgaGVscC5cbiNGaXJzdCwgc2VlIGlmIHlvdSBjYW4gd3JpdGUgYSBmdW5jdGlvbiB0byBjYWxjdWxhdGUgYSB2YWx1ZSBmb3IgdCAodGhlIHRlc3Qgc3RhdGlzdGljKSBhcyBnaXZlbiBieSB0aGUgZm9ybXVsYSB3ZSBsZWFybmVkIHRvZGF5LiAgV2UncmUgb25seSBnb2luZyB0byBydW4gYSBvbmUtc2FtcGxlIHQgdGVzdDpcbm9uZV9zYW1wbGVfdF90ZXN0IDwtIGZ1bmN0aW9uKHgsIG11LCBhbHRlcm5hdGl2ZT1jKFwibG93ZXJcIixcInVwcGVyXCIsXCJ0d28tdGFpbGVkXCIpKSB7XG4gIFxuICBzIDwtIHNkKHgpXG4gIG4gPC0gbGVuZ3RoKHgpXG4gIHhiYXIgPC0gbWVhbih4KVxuICBkZiA8LSBuIC0gMVxuICB0IDwtICh4YmFyIC0gbXUpLyhzL3NxcnQobikpXG4gIGNhdChcIlRoZSB0LXNjb3JlIGlzOlwiLCB0KVxufVxuI05vdyBjYWxsIHlvdXIgZnVuY3Rpb24gb24gdGhlIG1tX3dlaWdodCRXZWlnaHQuaW4uZ3JhbXMgZGF0YSBzZXQuICBEb2VzIHlvdXIgdC1zY29yZSBtYXRjaCB0aGUgdmFsdWUgb3V0cHV0dGVkIGJ5IHRoZSBidWlsdC1pbiB0LXRlc3QgZnVuY3Rpb24/XG5vbmVfc2FtcGxlX3RfdGVzdChtbV93ZWlnaHQkV2VpZ2h0LmluLmdyYW1zLCAxOClcbmBgYCJ9 -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI05vdyB0aGF0IHdlJ3ZlIHJ1biB0aGUgYnVpbHQtaW4gdmVyc2lvbiBvZiB0aGUgdC10ZXN0LCBsZXQncyBzZWUgaWYgd2UgY2FuIGRldmVsb3Agb3VyIG93bi4gIElmIHlvdSBuZWVkIGEgcmVmcmVzaGVyIG9uIGhvdyB0byB3cml0ZSBhIGZ1bmN0aW9uLCByZWZlciB0byB0aGUgcl9mdW5jdGlvbiBhbmQgY2hpc3F1YXJlIG5vdGVib29rcyBmb3IgaGVscC5cblxuI0ZpcnN0LCBzZWUgaWYgeW91IGNhbiB3cml0ZSBhIGZ1bmN0aW9uIHRvIGNhbGN1bGF0ZSBhIHZhbHVlIGZvciB0ICh0aGUgdGVzdCBzdGF0aXN0aWMpIGFzIGdpdmVuIGJ5IHRoZSBmb3JtdWxhIHdlIGxlYXJuZWQgdG9kYXkuICBXZSdyZSBvbmx5IGdvaW5nIHRvIHJ1biBhIG9uZS1zYW1wbGUgdCB0ZXN0OlxuXG5vbmVfc2FtcGxlX3RfdGVzdCA8LVxuXG5cbiNOb3cgY2FsbCB5b3VyIGZ1bmN0aW9uIG9uIHRoZSBtbV93ZWlnaHQkV2VpZ2h0LmluLmdyYW1zIGRhdGEgc2V0LiAgRG9lcyB5b3VyIHQtc2NvcmUgbWF0Y2ggdGhlIHZhbHVlIG91dHB1dHRlZCBieSB0aGUgYnVpbHQtaW4gdC10ZXN0IGZ1bmN0aW9uP1xuXG5gYGAifQ== -->
 <pre class="r"><code>#Now that we've run the built-in version of the t-test, let's see if we can develop our own.  If you need a refresher on how to write a function, refer to the r_function and chisquare notebooks for help.
+
 #First, see if you can write a function to calculate a value for t (the test statistic) as given by the formula we learned today.  We're only going to run a one-sample t test:
-one_sample_t_test &lt;- function(x, mu, alternative=c(&quot;lower&quot;,&quot;upper&quot;,&quot;two-tailed&quot;)) {
-  
-  s &lt;- sd(x)
-  n &lt;- length(x)
-  xbar &lt;- mean(x)
-  df &lt;- n - 1
-  t &lt;- (xbar - mu)/(s/sqrt(n))
-  cat(&quot;The t-score is:&quot;, t)
-}
+
+one_sample_t_test &lt;-
+
+
 #Now call your function on the mm_weight$Weight.in.grams data set.  Does your t-score match the value outputted by the built-in t-test function?
-one_sample_t_test(mm_weight$Weight.in.grams, 18)</code></pre>
+</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiVGhlIHQtc2NvcmUgaXM6IDMuMDAyNjY2XG4ifQ== -->
-<pre><code>The t-score is: 3.002666</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI1RoZSBiaWcgY2hhbGxlbmdlIGZvciB0b2RheSBpcyB0byBhZGQgY29kZSB0byBvdXIgdC10ZXN0IGZ1bmN0aW9uIHRoYXQgd2lsbCBvdXRwdXQgYSBwLXZhbHVlIGRlcGVuZGluZyBvbiB3aGV0aGVyIHdlIHdhbnQgdG8gcnVuIGFuIHVwcGVyLXRhaWxlZCwgbG93ZXItdGFpbGVkLCBvciB0d28tdGFpbGVkIHQtdGVzdC4gIFdlIGNhbiBzb2x2ZSB0aGlzIHByb2JsZW0gdXNpbmcgY29uZGl0aW9uYWxzLlxuI1lvdSBsZWFybmVkIGFib3V0IGNvbmRpdGlvbmFscyBpbiBQeXRob246IGlmLCBlbHNlIGlmLCBhbmQgZWxzZSBzdGF0ZW1lbnRzLlxuI0hlcmUncyBhbiBleGFtcGxlIG9mIGhvdyB0byB1c2UgY29uZGl0aW9uYWxzOlxuc3VtbWFyaXplIDwtIGZ1bmN0aW9uKHgpIHtcbiAgbWVhbl94IDwtIG1lYW4oeClcbiAgbWVkaWFuX3ggPC0gbWVkaWFuKHgpXG4gIFxuICAjU3RhcnQgd2l0aCBhbiBpZiBzdGF0ZW1lbnQuICBUaGUgY29uZGl0aW9uIGdvZXMgaW5zaWRlIHBhcmVudGhlc2VzLCBhbmQgdGhlIGFjdGlvbiB0byB0YWtlIGlmIHRoZSBjb25kaXRpb24gaXMgbWV0IGdvZXMgaW5zaWRlIGN1cmx5IGJyYWNrZXRzLlxuICBcbiAgaWYgKG1lYW5feCA+IG1lZGlhbl94KSB7XG4gICAgY2F0KFwiVGhlIG1lYW4gaXMgZ3JlYXRlciB0aGFuIHRoZSBtZWRpYW4hXCIpXG4gIH1cbiAgICAjSWYgeW91IGFyZSB0ZXN0aW5nIG11bHRpcGxlIGNvbmRpdGlvbnMsIHlvdSBjYW4gdXNlIGFuIGVsc2UgaWYgc3RhdGVtZW50IHdpdGggdGhlIHNhbWUgc3ludGF4IGFzIGFuIGlmIHN0YXRlbWVudC4gIFRoZSBjb25kaXRpb24gZ29lcyBpbnNpZGUgcGFyZW50aGVzZXMgYW5kIHRoZSBhY3Rpb24gdG8gdGFrZSBjb21lcyBhZnRlcndhcmRzIGluc2lkZSBjdXJseSBicmFja2V0cy5cbiAgICBcbiAgZWxzZSBpZiAobWVhbl94IDwgbWVkaWFuX3gpIHtcbiAgICBjYXQoXCJUaGUgbWVkaWFuIGlzIGdyZWF0ZXIgdGhhbiB0aGUgbWVhbiFcIil9XG4gICAgXG4gICAgI0ZpbmlzaCB1cCB3aXRoIGFuIGVsc2Ugc3RhdGVtZW50LCB3aXRoIHRoZSBhY3Rpb24gdG8gdGFrZSBpbnNpZGUgY3VybHkgYnJhY2tldHMuXG4gIGVsc2Uge1xuICAgIGNhdChcIlRoZSBtZWFuIGFuZCBtZWRpYW4gYXJlIGVxdWFsIVwiKVxuICB9XG59XG4jQ2FsbCB0aGUgZnVuY3Rpb24uICBXaGF0IGhhcHBlbnM/XG5zdW1tYXJpemUobW1fd2VpZ2h0JFdlaWdodC5pbi5ncmFtcylcbmBgYCJ9 -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI1RoZSBiaWcgY2hhbGxlbmdlIGZvciB0b2RheSBpcyB0byBhZGQgY29kZSB0byBvdXIgdC10ZXN0IGZ1bmN0aW9uIHRoYXQgd2lsbCBvdXRwdXQgYSBwLXZhbHVlIGRlcGVuZGluZyBvbiB3aGV0aGVyIHdlIHdhbnQgdG8gcnVuIGFuIHVwcGVyLXRhaWxlZCwgbG93ZXItdGFpbGVkLCBvciB0d28tdGFpbGVkIHQtdGVzdC4gIFdlIGNhbiBzb2x2ZSB0aGlzIHByb2JsZW0gdXNpbmcgY29uZGl0aW9uYWxzLlxuXG4jWW91IGxlYXJuZWQgYWJvdXQgY29uZGl0aW9uYWxzIGluIFB5dGhvbjogaWYsIGVsc2UgaWYsIGFuZCBlbHNlIHN0YXRlbWVudHMuXG5cbiNIZXJlJ3MgYW4gZXhhbXBsZSBvZiBob3cgdG8gdXNlIGNvbmRpdGlvbmFsczpcblxuc3VtbWFyaXplIDwtIGZ1bmN0aW9uKHgpIHtcbiAgbWVhbl94IDwtIG1lYW4oeClcbiAgbWVkaWFuX3ggPC0gbWVkaWFuKHgpXG4gIFxuICAjU3RhcnQgd2l0aCBhbiBpZiBzdGF0ZW1lbnQuICBUaGUgY29uZGl0aW9uIGdvZXMgaW5zaWRlIHBhcmVudGhlc2VzLCBhbmQgdGhlIGFjdGlvbiB0byB0YWtlIGlmIHRoZSBjb25kaXRpb24gaXMgbWV0IGdvZXMgaW5zaWRlIGN1cmx5IGJyYWNrZXRzLlxuICBcbiAgaWYgKG1lYW5feCA+IG1lZGlhbl94KSB7XG4gICAgY2F0KFwiVGhlIG1lYW4gaXMgZ3JlYXRlciB0aGFuIHRoZSBtZWRpYW4hXCIpXG4gIH1cbiAgICAjSWYgeW91IGFyZSB0ZXN0aW5nIG11bHRpcGxlIGNvbmRpdGlvbnMsIHlvdSBjYW4gdXNlIGFuIGVsc2UgaWYgc3RhdGVtZW50IHdpdGggdGhlIHNhbWUgc3ludGF4IGFzIGFuIGlmIHN0YXRlbWVudC4gIFRoZSBjb25kaXRpb24gZ29lcyBpbnNpZGUgcGFyZW50aGVzZXMgYW5kIHRoZSBhY3Rpb24gdG8gdGFrZSBjb21lcyBhZnRlcndhcmRzIGluc2lkZSBjdXJseSBicmFja2V0cy5cbiAgICBcbiAgZWxzZSBpZiAobWVhbl94IDwgbWVkaWFuX3gpIHtcbiAgICBjYXQoXCJUaGUgbWVkaWFuIGlzIGdyZWF0ZXIgdGhhbiB0aGUgbWVhbiFcIil9XG4gICAgXG4gICAgI0ZpbmlzaCB1cCB3aXRoIGFuIGVsc2Ugc3RhdGVtZW50LCB3aXRoIHRoZSBhY3Rpb24gdG8gdGFrZSBpbnNpZGUgY3VybHkgYnJhY2tldHMuXG4gIGVsc2Uge1xuICAgIGNhdChcIlRoZSBtZWFuIGFuZCBtZWRpYW4gYXJlIGVxdWFsIVwiKVxuICB9XG59XG5cbiNDYWxsIHRoZSBmdW5jdGlvbiBvbiB0aGUgbW1fd2VpZ2h0IGRhdGEgc2V0LiAgV2hhdCBoYXBwZW5zP1xuc3VtbWFyaXplKG1tX3dlaWdodCRXZWlnaHQuaW4uZ3JhbXMpXG5gYGAifQ== -->
 <pre class="r"><code>#The big challenge for today is to add code to our t-test function that will output a p-value depending on whether we want to run an upper-tailed, lower-tailed, or two-tailed t-test.  We can solve this problem using conditionals.
+
 #You learned about conditionals in Python: if, else if, and else statements.
+
 #Here's an example of how to use conditionals:
+
 summarize &lt;- function(x) {
   mean_x &lt;- mean(x)
   median_x &lt;- median(x)
@@ -320,12 +263,10 @@ summarize &lt;- function(x) {
     cat(&quot;The mean and median are equal!&quot;)
   }
 }
-#Call the function.  What happens?
+
+#Call the function on the mm_weight data set.  What happens?
 summarize(mm_weight$Weight.in.grams)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiVGhlIG1lZGlhbiBpcyBncmVhdGVyIHRoYW4gdGhlIG1lYW4hXG4ifQ== -->
-<pre><code>The median is greater than the mean!</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
@@ -351,7 +292,7 @@ summarize(mm_weight$Weight.in.grams)</code></pre>
 <p>The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike <em>Knit</em>, <em>Preview</em> does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.</p>
 <!-- rnb-text-end -->
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBOb3RlYm9vayIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKVGhpcyBpcyBhbiBbUiBNYXJrZG93bl0oaHR0cDovL3JtYXJrZG93bi5yc3R1ZGlvLmNvbSkgTm90ZWJvb2suIFdoZW4geW91IGV4ZWN1dGUgY29kZSB3aXRoaW4gdGhlIG5vdGVib29rLCB0aGUgcmVzdWx0cyBhcHBlYXIgYmVuZWF0aCB0aGUgY29kZS4gCgpUcnkgZXhlY3V0aW5nIHRoaXMgY2h1bmsgYnkgY2xpY2tpbmcgdGhlICpSdW4qIGJ1dHRvbiB3aXRoaW4gdGhlIGNodW5rIG9yIGJ5IHBsYWNpbmcgeW91ciBjdXJzb3IgaW5zaWRlIGl0IGFuZCBwcmVzc2luZyAqQ21kK1NoaWZ0K0VudGVyKi4gCgpgYGB7cn0KI1RvZGF5LCB3ZSdyZSBnb2luZyB0byBsZWFybiBhIGxpdHRsZSBiaXQgYWJvdXQgdGhlIHQtdGVzdC4KCiNUbyBkbyB0aGF0LCB3ZSBuZWVkIHRvIGxvYWQgaW4gYSBjb3VwbGUgb2YgZGF0YSBzZXRzLgoKI0ZpcnN0LCBsb2FkIGluIG91ciBmYWl0aGZ1bCBtbV93ZWlnaHQgZGF0YSBzZXQuCgoKCmBgYAoKYGBge3J9CiNPdXIgZ29hbCB0b2RheSBpcyB0byBkZXZlbG9wIGEgZnVuY3Rpb24gdG8gcnVuIGEgdC10ZXN0LiAgVGhlIGJhc2UgZGlzdHJpYnV0aW9uIG9mIFIgaW5jbHVkZXMgYSBmdW5jdGlvbiBmb3IgdGhlIHQtdGVzdC4gIFRvIGdldCBpbmZvcm1hdGlvbiBhYm91dCBob3cgdG8gdXNlIHRoaXMgZnVuY3Rpb24sIHB1bGwgdXAgdGhlIGhlbHAgcGFnZSB3aXRoOgoKP3QudGVzdApgYGAKCmBgYHtyfQojTGV0J3MgdGVzdCBvdXQgdGhpcyBmdW5jdGlvbi4gIFRvIHJ1biBhIG9uZS1zYW1wbGUsIHVwcGVyLXRhaWxlZCB0LXRlc3Qgb24gb3VyIG1tX3dlaWdodCBkYXRhIHNldCwgd2l0aCBhIG51bGwgaHlwb3RoZXNpcyB0aGF0IHRoZSB0cnVlIG1lYW4gd2VpZ2h0IGZvciB0aGUgcG9wdWxhdGlvbiBpcyAxOCBncmFtcywgeW91IGNhbGwgdGhlIGZ1bmN0aW9uIGFzIGZvbGxvd3M6Cgp0LnRlc3QobW1fd2VpZ2h0JFdlaWdodC5pbi5ncmFtcywgYWx0ZXJuYXRpdmU9InR3by5zaWRlZCIsIG11PTE4KQoKI1JlYWQgdGhlIG91dHB1dCBiZWxvdyB0byBpbnRlcnByZXQgdGhlIHRlc3QuCmBgYAoKYGBge3J9CiNSZW1lbWJlciB0aGF0IHRoZSB0LXRlc3QgaGFzIGxlc3MgY2VydGFpbnR5IGFuZCBwcmVjaXNpb24gdGhhbiB0aGUgei10ZXN0LCB3aGVyZSB3ZSBrbm93IGJvdGggbXUgYW5kIHNpZ21hLiAgQ29tcGFyZSB0aGUgb3V0cHV0IG9mIHRoZSB0LXRlc3QgZnVuY3Rpb24gYWJvdmUgdG8gdGhlIHotdGVzdDoKCiNGaXJzdCwgd2UgbG9hZCB0aGUgbGlicmFyeSwgQlNEQSwgdGhhdCBjb250YWlucyB0aGUgei10ZXN0IHBhY2thZ2UuLi4KbGlicmFyeShCU0RBKQoKI0FuZCB0aGVuIHdlIGNhbGwgdGhlIGZ1bmN0aW9uLgp6LnRlc3QobW1fd2VpZ2h0JFdlaWdodC5pbi5ncmFtcywgbXUgPSAxOCwgc2lnbWEueCA9IDAuNzUsIGFsdGVybmF0aXZlPSJ0d28uc2lkZWQiKQpgYGAKCmBgYHtyfQojTm93IHRoYXQgd2UndmUgcnVuIHRoZSBidWlsdC1pbiB2ZXJzaW9uIG9mIHRoZSB0LXRlc3QsIGxldCdzIHNlZSBpZiB3ZSBjYW4gZGV2ZWxvcCBvdXIgb3duLiAgSWYgeW91IG5lZWQgYSByZWZyZXNoZXIgb24gaG93IHRvIHdyaXRlIGEgZnVuY3Rpb24sIHJlZmVyIHRvIHRoZSByX2Z1bmN0aW9uIGFuZCBjaGlzcXVhcmUgbm90ZWJvb2tzIGZvciBoZWxwLgoKI0ZpcnN0LCBzZWUgaWYgeW91IGNhbiB3cml0ZSBhIGZ1bmN0aW9uIHRvIGNhbGN1bGF0ZSBhIHZhbHVlIGZvciB0ICh0aGUgdGVzdCBzdGF0aXN0aWMpIGFzIGdpdmVuIGJ5IHRoZSBmb3JtdWxhIHdlIGxlYXJuZWQgdG9kYXkuICBXZSdyZSBvbmx5IGdvaW5nIHRvIHJ1biBhIG9uZS1zYW1wbGUgdCB0ZXN0OgoKb25lX3NhbXBsZV90X3Rlc3QgPC0KCgojTm93IGNhbGwgeW91ciBmdW5jdGlvbiBvbiB0aGUgbW1fd2VpZ2h0JFdlaWdodC5pbi5ncmFtcyBkYXRhIHNldC4gIERvZXMgeW91ciB0LXNjb3JlIG1hdGNoIHRoZSB2YWx1ZSBvdXRwdXR0ZWQgYnkgdGhlIGJ1aWx0LWluIHQtdGVzdCBmdW5jdGlvbj8KCmBgYAoKYGBge3J9CiNUaGUgYmlnIGNoYWxsZW5nZSBmb3IgdG9kYXkgaXMgdG8gYWRkIGNvZGUgdG8gb3VyIHQtdGVzdCBmdW5jdGlvbiB0aGF0IHdpbGwgb3V0cHV0IGEgcC12YWx1ZSBkZXBlbmRpbmcgb24gd2hldGhlciB3ZSB3YW50IHRvIHJ1biBhbiB1cHBlci10YWlsZWQsIGxvd2VyLXRhaWxlZCwgb3IgdHdvLXRhaWxlZCB0LXRlc3QuICBXZSBjYW4gc29sdmUgdGhpcyBwcm9ibGVtIHVzaW5nIGNvbmRpdGlvbmFscy4KCiNZb3UgbGVhcm5lZCBhYm91dCBjb25kaXRpb25hbHMgaW4gUHl0aG9uOiBpZiwgZWxzZSBpZiwgYW5kIGVsc2Ugc3RhdGVtZW50cy4KCiNIZXJlJ3MgYW4gZXhhbXBsZSBvZiBob3cgdG8gdXNlIGNvbmRpdGlvbmFsczoKCnN1bW1hcml6ZSA8LSBmdW5jdGlvbih4KSB7CiAgbWVhbl94IDwtIG1lYW4oeCkKICBtZWRpYW5feCA8LSBtZWRpYW4oeCkKICAKICAjU3RhcnQgd2l0aCBhbiBpZiBzdGF0ZW1lbnQuICBUaGUgY29uZGl0aW9uIGdvZXMgaW5zaWRlIHBhcmVudGhlc2VzLCBhbmQgdGhlIGFjdGlvbiB0byB0YWtlIGlmIHRoZSBjb25kaXRpb24gaXMgbWV0IGdvZXMgaW5zaWRlIGN1cmx5IGJyYWNrZXRzLgogIAogIGlmIChtZWFuX3ggPiBtZWRpYW5feCkgewogICAgY2F0KCJUaGUgbWVhbiBpcyBncmVhdGVyIHRoYW4gdGhlIG1lZGlhbiEiKQogIH0KICAgICNJZiB5b3UgYXJlIHRlc3RpbmcgbXVsdGlwbGUgY29uZGl0aW9ucywgeW91IGNhbiB1c2UgYW4gZWxzZSBpZiBzdGF0ZW1lbnQgd2l0aCB0aGUgc2FtZSBzeW50YXggYXMgYW4gaWYgc3RhdGVtZW50LiAgVGhlIGNvbmRpdGlvbiBnb2VzIGluc2lkZSBwYXJlbnRoZXNlcyBhbmQgdGhlIGFjdGlvbiB0byB0YWtlIGNvbWVzIGFmdGVyd2FyZHMgaW5zaWRlIGN1cmx5IGJyYWNrZXRzLgogICAgCiAgZWxzZSBpZiAobWVhbl94IDwgbWVkaWFuX3gpIHsKICAgIGNhdCgiVGhlIG1lZGlhbiBpcyBncmVhdGVyIHRoYW4gdGhlIG1lYW4hIil9CiAgICAKICAgICNGaW5pc2ggdXAgd2l0aCBhbiBlbHNlIHN0YXRlbWVudCwgd2l0aCB0aGUgYWN0aW9uIHRvIHRha2UgaW5zaWRlIGN1cmx5IGJyYWNrZXRzLgogIGVsc2UgewogICAgY2F0KCJUaGUgbWVhbiBhbmQgbWVkaWFuIGFyZSBlcXVhbCEiKQogIH0KfQoKI0NhbGwgdGhlIGZ1bmN0aW9uIG9uIHRoZSBtbV93ZWlnaHQgZGF0YSBzZXQuICBXaGF0IGhhcHBlbnM/CnN1bW1hcml6ZShtbV93ZWlnaHQkV2VpZ2h0LmluLmdyYW1zKQpgYGAKCmBgYHtyfQojQ0hBTExFTkdFOiBDYW4geW91IGFkZCBjb25kaXRpb25hbHMgdG8geW91ciB0LXRlc3QgZnVuY3Rpb24gdG8gb3V0cHV0IHAtdmFsdWVzIGRlcGVuZGluZyBvbiB3aGV0aGVyIHRoZSB0ZXN0IGlzIHVwcGVyLXRhaWxlZCwgbG93ZXItdGFpbGVkLCBvciB0d28tdGFpbGVkPwoKI0hJTlQ6IFRoZSBmdW5jdGlvbiBmb3IgY2FsY3VsYXRpbmcgYSBwLXZhbHVlIGZvciB0aGUgdC10ZXN0IGlzIHB0KCkuICBZb3UgY2FuIHVzZSA/cHQgdG8gZ2V0IG1vcmUgaW5mb3JtYXRpb24gb24gdGhlIGZ1bmN0aW9uLiAgSWYgdGhpcyBpcyBjb25mdXNpbmcsIGNhbGwgbWUgb3ZlciBhbmQgSSB3aWxsIGhlbHAhCgoKCiNDYWxsIHlvdXIgZnVuY3Rpb24gb24gbW1fd2VpZ2h0JFdlaWdodC5pbi5ncmFtcyB0byBjb25kdWN0IGEgdHdvLXRhaWxlZCB0LXRlc3Qgd2l0aCBhIG11ID0gMTguCgoKCiNEb2VzIHlvdXIgb3V0cHV0IG1hdGNoIHRoZSBvdXRwdXQgb2YgdGhlIGJhc2UgZGlzdHJpYnV0aW9uIGZ1bmN0aW9uIGZvciB0aGUgdC10ZXN0PwoKCmBgYAoKQWRkIGEgbmV3IGNodW5rIGJ5IGNsaWNraW5nIHRoZSAqSW5zZXJ0IENodW5rKiBidXR0b24gb24gdGhlIHRvb2xiYXIgb3IgYnkgcHJlc3NpbmcgKkNtZCtPcHRpb24rSSouCgpXaGVuIHlvdSBzYXZlIHRoZSBub3RlYm9vaywgYW4gSFRNTCBmaWxlIGNvbnRhaW5pbmcgdGhlIGNvZGUgYW5kIG91dHB1dCB3aWxsIGJlIHNhdmVkIGFsb25nc2lkZSBpdCAoY2xpY2sgdGhlICpQcmV2aWV3KiBidXR0b24gb3IgcHJlc3MgKkNtZCtTaGlmdCtLKiB0byBwcmV2aWV3IHRoZSBIVE1MIGZpbGUpLiAKClRoZSBwcmV2aWV3IHNob3dzIHlvdSBhIHJlbmRlcmVkIEhUTUwgY29weSBvZiB0aGUgY29udGVudHMgb2YgdGhlIGVkaXRvci4gQ29uc2VxdWVudGx5LCB1bmxpa2UgKktuaXQqLCAqUHJldmlldyogZG9lcyBub3QgcnVuIGFueSBSIGNvZGUgY2h1bmtzLiBJbnN0ZWFkLCB0aGUgb3V0cHV0IG9mIHRoZSBjaHVuayB3aGVuIGl0IHdhcyBsYXN0IHJ1biBpbiB0aGUgZWRpdG9yIGlzIGRpc3BsYXllZC4KCg==</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBOb3RlYm9vayIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKVGhpcyBpcyBhbiBbUiBNYXJrZG93bl0oaHR0cDovL3JtYXJrZG93bi5yc3R1ZGlvLmNvbSkgTm90ZWJvb2suIFdoZW4geW91IGV4ZWN1dGUgY29kZSB3aXRoaW4gdGhlIG5vdGVib29rLCB0aGUgcmVzdWx0cyBhcHBlYXIgYmVuZWF0aCB0aGUgY29kZS4gCgpUcnkgZXhlY3V0aW5nIHRoaXMgY2h1bmsgYnkgY2xpY2tpbmcgdGhlICpSdW4qIGJ1dHRvbiB3aXRoaW4gdGhlIGNodW5rIG9yIGJ5IHBsYWNpbmcgeW91ciBjdXJzb3IgaW5zaWRlIGl0IGFuZCBwcmVzc2luZyAqQ21kK1NoaWZ0K0VudGVyKi4gCgpgYGB7cn0KI1RvZGF5LCB3ZSdyZSBnb2luZyB0byBsZWFybiBhIGxpdHRsZSBiaXQgYWJvdXQgdGhlIHQtdGVzdC4KCiNUbyBkbyB0aGF0LCB3ZSBuZWVkIHRvIGxvYWQgaW4gYSBjb3VwbGUgb2YgZGF0YSBzZXRzLgoKI0ZpcnN0LCBsb2FkIGluIG91ciBmYWl0aGZ1bCBtbV93ZWlnaHQgZGF0YSBzZXQuCgoKCmBgYAoKYGBge3J9CiNPdXIgZ29hbCB0b2RheSBpcyB0byBkZXZlbG9wIGEgZnVuY3Rpb24gdG8gcnVuIGEgdC10ZXN0LiAgVGhlIGJhc2UgZGlzdHJpYnV0aW9uIG9mIFIgaW5jbHVkZXMgYSBmdW5jdGlvbiBmb3IgdGhlIHQtdGVzdC4gIFRvIGdldCBpbmZvcm1hdGlvbiBhYm91dCBob3cgdG8gdXNlIHRoaXMgZnVuY3Rpb24sIHB1bGwgdXAgdGhlIGhlbHAgcGFnZSB3aXRoOgoKP3QudGVzdApgYGAKCmBgYHtyfQojTGV0J3MgdGVzdCBvdXQgdGhpcyBmdW5jdGlvbi4gIFRvIHJ1biBhIG9uZS1zYW1wbGUsIHVwcGVyLXRhaWxlZCB0LXRlc3Qgb24gb3VyIG1tX3dlaWdodCBkYXRhIHNldCwgd2l0aCBhIG51bGwgaHlwb3RoZXNpcyB0aGF0IHRoZSB0cnVlIG1lYW4gd2VpZ2h0IGZvciB0aGUgcG9wdWxhdGlvbiBpcyAxOCBncmFtcywgeW91IGNhbGwgdGhlIGZ1bmN0aW9uIGFzIGZvbGxvd3M6Cgp0LnRlc3QobW1fd2VpZ2h0JFdlaWdodC5pbi5ncmFtcywgYWx0ZXJuYXRpdmU9InR3by5zaWRlZCIsIG11PTE4KQoKI1JlYWQgdGhlIG91dHB1dCBiZWxvdyB0byBpbnRlcnByZXQgdGhlIHRlc3QuCmBgYAoKYGBge3J9CiNSZW1lbWJlciB0aGF0IHRoZSB0LXRlc3QgaGFzIGxlc3MgY2VydGFpbnR5IGFuZCBwcmVjaXNpb24gdGhhbiB0aGUgei10ZXN0LCB3aGVyZSB3ZSBrbm93IGJvdGggbXUgYW5kIHNpZ21hLiAgQ29tcGFyZSB0aGUgb3V0cHV0IG9mIHRoZSB0LXRlc3QgZnVuY3Rpb24gYWJvdmUgdG8gdGhlIHotdGVzdDoKCiNGaXJzdCwgd2UgbG9hZCB0aGUgbGlicmFyeSwgQlNEQSwgdGhhdCBjb250YWlucyB0aGUgei10ZXN0IHBhY2thZ2UuLi4KbGlicmFyeShCU0RBKQoKI0FuZCB0aGVuIHdlIGNhbGwgdGhlIGZ1bmN0aW9uLgp6LnRlc3QobW1fd2VpZ2h0JFdlaWdodC5pbi5ncmFtcywgbXUgPSAxOCwgc2lnbWEueCA9IDAuNzUsIGFsdGVybmF0aXZlPSJ0d28uc2lkZWQiKQpgYGAKCmBgYHtyfQojTm93IHRoYXQgd2UndmUgcnVuIHRoZSBidWlsdC1pbiB2ZXJzaW9uIG9mIHRoZSB0LXRlc3QsIGxldCdzIHNlZSBpZiB3ZSBjYW4gZGV2ZWxvcCBvdXIgb3duLiAgSWYgeW91IG5lZWQgYSByZWZyZXNoZXIgb24gaG93IHRvIHdyaXRlIGEgZnVuY3Rpb24sIHJlZmVyIHRvIHRoZSByX2Z1bmN0aW9uIGFuZCBjaGlzcXVhcmUgbm90ZWJvb2tzIGZvciBoZWxwLgoKI0ZpcnN0LCBzZWUgaWYgeW91IGNhbiB3cml0ZSBhIGZ1bmN0aW9uIHRvIGNhbGN1bGF0ZSBhIHZhbHVlIGZvciB0ICh0aGUgdGVzdCBzdGF0aXN0aWMpIGFzIGdpdmVuIGJ5IHRoZSBmb3JtdWxhIHdlIGxlYXJuZWQgdG9kYXkuICBXZSdyZSBvbmx5IGdvaW5nIHRvIHJ1biBhIG9uZS1zYW1wbGUgdCB0ZXN0OgoKb25lX3NhbXBsZV90X3Rlc3QgPC0KCgojTm93IGNhbGwgeW91ciBmdW5jdGlvbiBvbiB0aGUgbW1fd2VpZ2h0JFdlaWdodC5pbi5ncmFtcyBkYXRhIHNldC4gIERvZXMgeW91ciB0LXNjb3JlIG1hdGNoIHRoZSB2YWx1ZSBvdXRwdXR0ZWQgYnkgdGhlIGJ1aWx0LWluIHQtdGVzdCBmdW5jdGlvbj8KCmBgYAoKYGBge3J9CiNUaGUgYmlnIGNoYWxsZW5nZSBmb3IgdG9kYXkgaXMgdG8gYWRkIGNvZGUgdG8gb3VyIHQtdGVzdCBmdW5jdGlvbiB0aGF0IHdpbGwgb3V0cHV0IGEgcC12YWx1ZSBkZXBlbmRpbmcgb24gd2hldGhlciB3ZSB3YW50IHRvIHJ1biBhbiB1cHBlci10YWlsZWQsIGxvd2VyLXRhaWxlZCwgb3IgdHdvLXRhaWxlZCB0LXRlc3QuICBXZSBjYW4gc29sdmUgdGhpcyBwcm9ibGVtIHVzaW5nIGNvbmRpdGlvbmFscy4KCiNZb3UgbGVhcm5lZCBhYm91dCBjb25kaXRpb25hbHMgaW4gUHl0aG9uOiBpZiwgZWxzZSBpZiwgYW5kIGVsc2Ugc3RhdGVtZW50cy4KCiNIZXJlJ3MgYW4gZXhhbXBsZSBvZiBob3cgdG8gdXNlIGNvbmRpdGlvbmFsczoKCnN1bW1hcml6ZSA8LSBmdW5jdGlvbih4KSB7CiAgbWVhbl94IDwtIG1lYW4oeCkKICBtZWRpYW5feCA8LSBtZWRpYW4oeCkKICAKICAjU3RhcnQgd2l0aCBhbiBpZiBzdGF0ZW1lbnQuICBUaGUgY29uZGl0aW9uIGdvZXMgaW5zaWRlIHBhcmVudGhlc2VzLCBhbmQgdGhlIGFjdGlvbiB0byB0YWtlIGlmIHRoZSBjb25kaXRpb24gaXMgbWV0IGdvZXMgaW5zaWRlIGN1cmx5IGJyYWNrZXRzLgogIAogIGlmIChtZWFuX3ggPiBtZWRpYW5feCkgewogICAgY2F0KCJUaGUgbWVhbiBpcyBncmVhdGVyIHRoYW4gdGhlIG1lZGlhbiEiKQogIH0KICAgICNJZiB5b3UgYXJlIHRlc3RpbmcgbXVsdGlwbGUgY29uZGl0aW9ucywgeW91IGNhbiB1c2UgYW4gZWxzZSBpZiBzdGF0ZW1lbnQgd2l0aCB0aGUgc2FtZSBzeW50YXggYXMgYW4gaWYgc3RhdGVtZW50LiAgVGhlIGNvbmRpdGlvbiBnb2VzIGluc2lkZSBwYXJlbnRoZXNlcyBhbmQgdGhlIGFjdGlvbiB0byB0YWtlIGNvbWVzIGFmdGVyd2FyZHMgaW5zaWRlIGN1cmx5IGJyYWNrZXRzLgogICAgCiAgZWxzZSBpZiAobWVhbl94IDwgbWVkaWFuX3gpIHsKICAgIGNhdCgiVGhlIG1lZGlhbiBpcyBncmVhdGVyIHRoYW4gdGhlIG1lYW4hIil9CiAgICAKICAgICNGaW5pc2ggdXAgd2l0aCBhbiBlbHNlIHN0YXRlbWVudCwgd2l0aCB0aGUgYWN0aW9uIHRvIHRha2UgaW5zaWRlIGN1cmx5IGJyYWNrZXRzLgogIGVsc2UgewogICAgY2F0KCJUaGUgbWVhbiBhbmQgbWVkaWFuIGFyZSBlcXVhbCEiKQogIH0KfQoKI0NhbGwgdGhlIGZ1bmN0aW9uIG9uIHRoZSBtbV93ZWlnaHQgZGF0YSBzZXQuICBXaGF0IGhhcHBlbnM/CnN1bW1hcml6ZShtbV93ZWlnaHQkV2VpZ2h0LmluLmdyYW1zKQpgYGAKCmBgYHtyfQojQ0hBTExFTkdFOiBDYW4geW91IGFkZCBjb25kaXRpb25hbHMgdG8geW91ciB0LXRlc3QgZnVuY3Rpb24gdG8gb3V0cHV0IHAtdmFsdWVzIGRlcGVuZGluZyBvbiB3aGV0aGVyIHRoZSB0ZXN0IGlzIHVwcGVyLXRhaWxlZCwgbG93ZXItdGFpbGVkLCBvciB0d28tdGFpbGVkPwoKI0hJTlQ6IFRoZSBmdW5jdGlvbiBmb3IgY2FsY3VsYXRpbmcgYSBwLXZhbHVlIGZvciB0aGUgdC10ZXN0IGlzIHB0KCkuICBZb3UgY2FuIHVzZSA/cHQgdG8gZ2V0IG1vcmUgaW5mb3JtYXRpb24gb24gdGhlIGZ1bmN0aW9uLiAgSWYgdGhpcyBpcyBjb25mdXNpbmcsIGNhbGwgbWUgb3ZlciBhbmQgSSB3aWxsIGhlbHAhCgoKCiNDYWxsIHlvdXIgZnVuY3Rpb24gb24gbW1fd2VpZ2h0JFdlaWdodC5pbi5ncmFtcyB0byBjb25kdWN0IGEgdHdvLXRhaWxlZCB0LXRlc3Qgd2l0aCBhIG11ID0gMTguCgoKCiNEb2VzIHlvdXIgb3V0cHV0IG1hdGNoIHRoZSBvdXRwdXQgb2YgdGhlIGJhc2UgZGlzdHJpYnV0aW9uIGZ1bmN0aW9uIGZvciB0aGUgdC10ZXN0PwoKCmBgYAoKQWRkIGEgbmV3IGNodW5rIGJ5IGNsaWNraW5nIHRoZSAqSW5zZXJ0IENodW5rKiBidXR0b24gb24gdGhlIHRvb2xiYXIgb3IgYnkgcHJlc3NpbmcgKkNtZCtPcHRpb24rSSouCgpXaGVuIHlvdSBzYXZlIHRoZSBub3RlYm9vaywgYW4gSFRNTCBmaWxlIGNvbnRhaW5pbmcgdGhlIGNvZGUgYW5kIG91dHB1dCB3aWxsIGJlIHNhdmVkIGFsb25nc2lkZSBpdCAoY2xpY2sgdGhlICpQcmV2aWV3KiBidXR0b24gb3IgcHJlc3MgKkNtZCtTaGlmdCtLKiB0byBwcmV2aWV3IHRoZSBIVE1MIGZpbGUpLiAKClRoZSBwcmV2aWV3IHNob3dzIHlvdSBhIHJlbmRlcmVkIEhUTUwgY29weSBvZiB0aGUgY29udGVudHMgb2YgdGhlIGVkaXRvci4gQ29uc2VxdWVudGx5LCB1bmxpa2UgKktuaXQqLCAqUHJldmlldyogZG9lcyBub3QgcnVuIGFueSBSIGNvZGUgY2h1bmtzLiBJbnN0ZWFkLCB0aGUgb3V0cHV0IG9mIHRoZSBjaHVuayB3aGVuIGl0IHdhcyBsYXN0IHJ1biBpbiB0aGUgZWRpdG9yIGlzIGRpc3BsYXllZC4K</div>
 
 
 
