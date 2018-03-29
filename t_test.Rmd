@@ -1,0 +1,109 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Cmd+Shift+Enter*. 
+
+```{r}
+#Today, we're going to learn a little bit about the t-test.
+
+#To do that, we need to load in a couple of data sets.
+
+#First, load in our faithful mm_weight data set.
+
+
+
+```
+
+```{r}
+#Our goal today is to develop a function to run a t-test.  The base distribution of R includes a function for the t-test.  To get information about how to use this function, pull up the help page with:
+
+?t.test
+```
+
+```{r}
+#Let's test out this function.  To run a one-sample, upper-tailed t-test on our mm_weight data set, with a null hypothesis that the true mean weight for the population is 18 grams, you call the function as follows:
+
+t.test(mm_weight$Weight.in.grams, alternative="two.sided", mu=18)
+
+#Read the output below to interpret the test.
+```
+
+```{r}
+#Remember that the t-test has less certainty and precision than the z-test, where we know both mu and sigma.  Compare the output of the t-test function above to the z-test:
+
+#First, we load the library, BSDA, that contains the z-test package...
+library(BSDA)
+
+#And then we call the function.
+z.test(mm_weight$Weight.in.grams, mu = 18, sigma.x = 0.75, alternative="two.sided")
+```
+
+```{r}
+#Now that we've run the built-in version of the t-test, let's see if we can develop our own.  If you need a refresher on how to write a function, refer to the r_function and chisquare notebooks for help.
+
+#First, see if you can write a function to calculate a value for t (the test statistic) as given by the formula we learned today.  We're only going to run a one-sample t test:
+
+one_sample_t_test <-
+
+
+#Now call your function on the mm_weight$Weight.in.grams data set.  Does your t-score match the value outputted by the built-in t-test function?
+
+```
+
+```{r}
+#The big challenge for today is to add code to our t-test function that will output a p-value depending on whether we want to run an upper-tailed, lower-tailed, or two-tailed t-test.  We can solve this problem using conditionals.
+
+#You learned about conditionals in Python: if, else if, and else statements.
+
+#Here's an example of how to use conditionals:
+
+summarize <- function(x) {
+  mean_x <- mean(x)
+  median_x <- median(x)
+  
+  #Start with an if statement.  The condition goes inside parentheses, and the action to take if the condition is met goes inside curly brackets.
+  
+  if (mean_x > median_x) {
+    cat("The mean is greater than the median!")
+  }
+    #If you are testing multiple conditions, you can use an else if statement with the same syntax as an if statement.  The condition goes inside parentheses and the action to take comes afterwards inside curly brackets.
+    
+  else if (mean_x < median_x) {
+    cat("The median is greater than the mean!")}
+    
+    #Finish up with an else statement, with the action to take inside curly brackets.
+  else {
+    cat("The mean and median are equal!")
+  }
+}
+
+#Call the function on the mm_weight data set.  What happens?
+summarize(mm_weight$Weight.in.grams)
+```
+
+```{r}
+#CHALLENGE: Can you add conditionals to your t-test function to output p-values depending on whether the test is upper-tailed, lower-tailed, or two-tailed?
+
+#HINT: The function for calculating a p-value for the t-test is pt().  You can use ?pt to get more information on the function.  If this is confusing, call me over and I will help!
+
+
+
+#Call your function on mm_weight$Weight.in.grams to conduct a two-tailed t-test with a mu = 18.
+
+
+
+#Does your output match the output of the base distribution function for the t-test?
+
+
+```
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Cmd+Shift+K* to preview the HTML file). 
+
+The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+
